@@ -1,0 +1,101 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+}
+ul,li{
+    list-style: none;
+}
+.topBG{
+    height: 5.813333rem /* 436/75 */;
+}
+.topBG img{
+    width: 100%;
+}
+.center{
+    width: 8.733333rem /* 655/75 */;
+    margin: 0 auto;
+    position: absolute;
+    box-sizing: border-box;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: .56rem /* 42/75 */;
+    border-radius: .24rem /* 18/75 */;
+    box-shadow: 0 0 .2rem /* 15/75 */ rgba(0, 0, 0, .3);
+    top: .533333rem /* 40/75 */;
+    z-index: 10;
+    background: #fff;
+}
+#main .titles{
+    text-align: center;
+    color: #47649c
+}
+#main ul{
+    padding-top: .4rem /* 30/75 */;
+}
+#main li input,#main li textarea{
+    border-radius: .133333rem /* 10/75 */;
+    border: 1px solid #d2d2d2;
+    resize: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding-left: .32rem /* 24/75 */;
+    color: #7f7e7e;
+    font-size: .32rem /* 24/75 */;
+}
+#main li{
+    margin-bottom: .6rem /* 45/75 */;
+}
+#main li textarea{
+    padding-top: .266667rem /* 20/75 */;
+    padding-bottom: .266667rem /* 20/75 */;
+    padding-right: .32rem /* 24/75 */;
+    height: 2.8rem /* 210/75 */;
+}
+#main li textarea::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color: #7f7e7e;
+    font-size: .32rem /* 24/75 */;
+    font-family:Arial, Helvetica, sans-serif ;
+}
+#main li textarea:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #7f7e7e;
+    font-size: .32rem /* 24/75 */;
+    font-family:Arial, Helvetica, sans-serif ;
+}
+#main li textarea::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #7f7e7e;
+    font-size: .32rem /* 24/75 */;
+    font-family:Arial, Helvetica, sans-serif ;
+}
+#main li textarea:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #7f7e7e;
+    font-size: .32rem /* 24/75 */;
+    font-family:Arial, Helvetica, sans-serif ;
+}
+.inputs{
+    line-height: 1.066667rem /* 80/75 */;
+}
+.authCode{
+    position: relative;
+}
+.authCode span{
+    line-height: 1.066667rem /* 80/75 */;
+    position: absolute;
+    right: .48rem /* 36/75 */;
+    height: 100%;
+    color: #47649c;
+    top: 50%;
+    vertical-align: middle;
+    transform: translateY(-50%)
+}
+.submit{
+    width: 100%;
+    line-height: 1.066667rem /* 80/75 */;
+    background: #47649c;;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 0;
+    border-radius: .133333rem /* 10/75 */
+}

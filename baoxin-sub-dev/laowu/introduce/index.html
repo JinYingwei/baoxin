@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+			}
+
+			img {
+				width: 100%;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<h4 style="text-align: center;">日本介护介绍</h4>
+		<img src="images/1553049007414874_01.jpg">
+		<img src="images/1553049007414874_02.jpg">
+		<img src="images/1553049007414874_03.jpg">
+		<img src="images/1553049007414874_04.jpg">
+		<img src="images/1553049007414874_05.jpg">
+		<img src="images/1553049007414874_06.jpg">
+	</body>
+	<script src="http://ii.sinelinked.com/lib/axios.min.js"></script>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+	<script>
+		/* //把url后面的参数解析成对象 */
+		function parseUrl(url) {
+			var reg = /(\w+)=(\w+)/ig;
+			var result = {};
+
+			url.replace(reg, function(a, b, c) {
+				result[b] = c;
+			});
+
+			return result;
+		}
+
+		var type = parseUrl(location.href).type || ''
+		var value = '日本介护介绍'
+
+		var shareConfig = {}
+		let currentUrl = window.location.href;
+		axios({
+				method: "get",
+				url: "http://ii.sinelinked.com/tg_web/api/cms/shareArt",
+				params: {
+					url: currentUrl
+				}
+			})
+			.then((result) => {
+				if (result.data.code == 0) {
+					shareConfig = result.data.data
+					share(shareConfig)
+				}
+			}).catch((err) => {
+
+			});
+
+		// 分享
+		function share(data) {
+			var that = this;
+			wx.config({
+				debug: false,
+				// 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+				appId: "wxe606548e5709ce55", // 必填，公众号的唯一标识
+				timestamp: data.timestamp, // 必填，生成签名的时间戳
+				nonceStr: data.nonce_str, // 必填，生成签名的随机串
+				signature: data.sha1Data, // 必填，签名，见附录1
+				jsApiList: [
+					"onMenuShareTimeline",
+					"onMenuShareAppMessage",
+					"updateAppMessageShareData",
+					"updateTimelineShareData"
+				] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+			});
+
+			wx.ready(function() {
+				
+				wx.onMenuShareAppMessage({
+					title: '日本介护介绍', // 分享标题
+					desc: '日本介护介绍...点击进入了解详情', // 分享描述
+					link: currentUrl,
+					imgUrl: "http://ii.sinelinked.com/sub/laowu/introduce/images/share2.png", // 分享图标
+					success: function() {
+						// 设置成功
+						// alert("转发成功1");
+					}
+				});
+
+// 				wx.updateAppMessageShareData({
+// 					title: '日本介护介绍', // 分享标题
+// 					desc: '日本介护介绍...点击进入了解详情', // 分享描述
+// 					link: currentUrl,
+// 					imgUrl: "http://ii.sinelinked.com/sub/laowu/introduce/images/share.png", // 分享图标
+// 					success: function() {
+// 						// 设置成功
+// 						// alert("转发成功2");
+// 					}
+// 				})
+
+// 				wx.updateTimelineShareData({
+// 					title: '日本介护介绍', // 分享标题
+// 					desc: '日本介护介绍...点击进入了解详情', // 分享描述
+// 					link: currentUrl,
+// 					imgUrl: "http://ii.sinelinked.com/sub/laowu/introduce/images/share.png", // 分享图标
+// 					success: function() {
+// 						// 设置成功
+// 						alert("转发成功222");
+// 					}
+// 				})
+
+				wx.onMenuShareTimeline({
+					title: '日本介护介绍', // 分享标题
+					desc: '日本介护介绍...点击进入了解详情', // 分享描述
+					link: currentUrl,
+					imgUrl: "http://ii.sinelinked.com/sub/laowu/introduce/images/share2.png", // 分享图标
+					success: function() {
+						// 用户点击了分享后执行的回调函数
+						// alert("转发成功233");
+					},
+
+				});
+
+				wx.error(function(res) {
+					alert("微信验证失败");
+					alert(JSON.stringify(res));
+				});
+			})
+		}
+	</script>
+</html>

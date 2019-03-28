@@ -1,0 +1,57 @@
+// 正式环境
+var baseURL = 'http://ii.sinelinked.com/tg_web';
+// 获取当前网站协议 进行 动态切换地址
+var locationProtocol = window.location.protocol
+console.log(locationProtocol)
+if(locationProtocol === 'https:'){
+    baseURL = 'https://ii.sinelinked.com/tg_web';
+}else{
+    baseURL = 'http://ii.sinelinked.com/tg_web';
+}
+// axios公共配置
+// axios.defaults.withCredentials = true;
+// axios.defaults.headers.common['Accept'] =`text/plain, text/html,application/json,text/javascript, application/javascript;${document.cookie}`;
+
+// 添加响应拦截器
+// axios.interceptors.response.use(function (response) {
+// 	console.log('响应拦截', response)
+// 	// 对响应数据做点什么
+// 	//     var code = response.data.code
+// 	//     if(code && code == 1){
+// 	//         noLogin('/userCenter/html/login.html')
+// 	//     }
+// 	return response;
+// }, function (error) {
+// 	// 对响应错误做点什么
+// 	console.log('响应拦截error')
+// 	return Promise.reject(error);
+// });
+
+// 未登录
+function noLogin(targetUrl) {
+	location.href = targetUrl;
+}
+/*
+	Toast.loading({mask: true,duration:0,message: '加载中...'});
+	Toast('我是提示文案');
+	Toast.clear()
+	
+	this.axios({
+			method:"get",
+			url:baseURL+'/api/order/getAssignOrder',
+		}
+	)
+	.then(result=>{
+		console.log(result)
+		if(result.data.code == 0){
+			this.orderActiveData == result.data.data.orderInfo
+		}else{
+			
+		}
+	})
+	.catch(err=>{
+		console.log(err)
+	})
+	
+	
+*/

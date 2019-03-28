@@ -1,0 +1,69 @@
+<template>
+	<div>
+		<div class="center shadow-box" id="memberDetails">
+			<h3 class="shareTitle">成员详情</h3>
+			<van-cell-group>
+				<van-field label="姓名" :placeholder="agentData.userName" disabled />
+				<van-field label="电话" :placeholder="agentData.phone" disabled />
+				<van-field label="工号" :placeholder="agentData.jobNumber" disabled />
+				<van-field label="区域" :placeholder="address" disabled />
+				<van-field label="职业证书编号" :placeholder="agentData.certificateNo" disabled />
+				<van-field label="所属代理公司" :placeholder="agentData.companyName" disabled />
+				<van-field label="简介" type="textarea" :placeholder="agentData.personSummary" v-model="agentData.personSummary" rows="1" autosize  disabled/>
+			</van-cell-group>
+		</div>
+	</div>
+</template>
+
+<script>
+	import cityData from "../assets/js/region.js"
+	import utils from "../assets/js/utils.js"
+	export default {
+		data() {
+			return {
+				agentId:'',
+				agentData: {},
+				address: "", //转换后的地址
+			}
+		},
+		methods: {
+			//获取团队人员接口
+			search() {
+				this.axios({
+						url: baseURL + '/api/XCX/agent/search',
+						method: 'get',
+						params:{
+							agentId:this.agentId
+						}
+					})
+					.then(result => {
+						this.agentData = result.data[0]
+						if (result.data[0]) {
+							this.teamData = result.data[0]
+							this.personImgHeadResult = this.teamData.headImg
+							//转换地址时间
+							this.address = utils.getCityResult(cityData, result.data[0].area)
+						}
+					})
+					.catch(error => {
+
+					})
+			},
+		},
+		created(){
+			this.agentId = this.$route.params.id
+			this.search()
+		}
+	}
+</script>
+
+<style>
+	.shareTitle {
+		text-align: center;
+		font-weight: normal;
+	}
+
+	#memberDetails .van-field .van-cell__title {
+		max-width: 100px;
+	}
+</style>

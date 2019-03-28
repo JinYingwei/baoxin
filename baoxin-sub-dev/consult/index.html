@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>保险咨询</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./js/flexible.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/consut.css" />
+    <link rel="stylesheet" href="./css/LArea.css">
+    <script src="http://ii.sinelinked.com/lib/axios.min.js"></script>
+    <script src="./js/layer_mobile/layer.js"></script>
+
+</head>
+
+<body class="page">
+    <div class="topBG">
+        <img src="./img/top_bg.png" alt="" srcset="">
+    </div>
+    <div class="center" id="main">
+        <h3 class="titles">保险咨询</h3>
+        <ul>
+            <li>
+                <textarea id="content" placeholder="晟联保信是您的专业保险规划师，您和您的家人有什么关于保险的需求，或者问题，欢迎咨询。"></textarea>
+            </li>
+            <li>
+                <input  id="name" class="inputs" type="text" placeholder="请输入您的姓名">
+            </li>
+            <li>
+                <input  id="tel" class="inputs" type="text" placeholder="请输入您的联系方式">
+            </li>
+            <li>
+                <!-- <input class="inputs" type="text" placeholder="请输入您的地区"> -->
+                <input class="inputs" id="demo2" type="text" readonly="" placeholder="请选择城市" />
+                <input id="address" type="hidden" />
+            </li>
+            <li class="authCode">
+                <input  id="verifyCode" class="inputs" type="text" placeholder="请输入验证码">
+                <span id="sendCode">发送验证码</span>
+            </li>
+        </ul>
+        <br>
+        <button class="submit">提交</button>
+    </div>
+    <script src="./js/city-picker/LAreaData2.js"></script>
+    <script src="./js/city-picker/LArea.js"></script>
+    <script src="./js/consut.js"></script>
+</body>
+
+<script>
+    
+</script>
+
+</html>

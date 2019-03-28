@@ -1,0 +1,215 @@
+<template>
+	<div>
+		<h3 class="shareTitle">申请加入通知</h3>
+		<div class="center shadow-box">
+			<div id="member-list">
+				<van-panel v-for="(item,index) in teamManageList" :key="index">
+					<div slot="footer">
+						<div class="infiLeft">
+							<span>{{ item.userName }}</span>
+							<span>{{ item.phone }}</span>
+						</div>
+						<div class="btnBox">
+							<van-button size="small" @click="applyTeamOperate(item.id,1)">同意</van-button>
+							<van-button size="small" type="danger" @click="applyTeamOperate(item.id,2)">拒绝</van-button>
+						</div>
+					</div>
+				</van-panel>
+				<span v-if="teamManageListNull" class="null-tip">
+					<van-icon name="info-o" />
+					<span>暂无通知</span>
+				</span>
+			</div>
+
+		</div>
+		<h3 class="shareTitle">团队通知</h3>
+		<div class="center shadow-box">
+			<van-tabs v-model="active" swipeable>
+				<van-tab title="通知">
+					<div>
+						<br>
+						<van-cell-group>
+							<van-field v-model="message" label="内容" type="textarea" placeholder="请输入通知内容" rows="3" autosize />
+						</van-cell-group>
+						<div class="messageBtn">
+							<van-button size="small" type="danger" @click="addTeamMsg">发送</van-button>
+						</div>
+					</div>
+				</van-tab>
+				<van-tab title="历史">
+					<div class="history-msg">
+						<van-cell-group>
+							<van-field v-for="(item,index) in TeamManageMsg" :key="index" type="textarea" :label="item.content" :placeholder="timeFormat(item.publishTime)"
+							    rows="1" autosize disabled />
+						</van-cell-group>
+					</div>
+				</van-tab>
+			</van-tabs>
+		</div>
+	</div>
+</template>
+
+<script>
+	import {
+		Toast
+	} from 'vant';
+	import utils from "../assets/js/utils.js"
+	export default {
+		data() {
+			return {
+				active: 0,
+				message: '', //通知内容
+				TeamManageMsg: [], //消息历史
+				teamManageList: [], //申请列表
+				teamManageListNull: true,
+			}
+		},
+		methods: {
+			//转换时间
+			timeFormat(sendTime) {
+				var timeFormat = utils.timeFormat
+				return timeFormat(sendTime)
+			},
+			//发送消息 
+			addTeamMsg() {
+				this.axios({
+						url: baseURL + '/api/user/addTeamMsg',
+						method: 'post',
+						data: {
+							"title": '消息通知',
+							"content": this.message
+						}
+					})
+					.then(result => {
+						if (result.data.code == 0) {
+							this.message = ''
+							Toast.success('发送成功');
+							this.getTeamManageMsg()
+						} else {
+							Toast.fail('发送失败');
+						}
+					})
+					.catch(error => {
+						Toast.fail(error.response.data.error);
+					})
+			},
+			//消息历史
+			getTeamManageMsg() {
+				this.axios({
+						url: baseURL + '/api/user/getTeamManageMsg',
+						method: 'get'
+					})
+					.then(result => {
+						if (result.data.code == 0 && result.data.data.items.length) {
+							var data = result.data.data.items
+							this.TeamManageMsg = data
+						}
+					})
+			},
+			//获取团队申请记录接口
+			teamManage() {
+				this.axios({
+						url: baseURL + '/api/user/teamManage',
+						method: 'get'
+					})
+					.then(result => {
+						if (result.data.code == 0 && result.data.data.list.length) {
+							this.teamManageList = result.data.data.list
+							this.teamManageListNull = false
+						}
+					})
+					.catch(error => {
+
+					})
+			},
+			//同意/拒绝加入团队
+			applyTeamOperate(id, operateType) {
+				this.axios({
+						url: baseURL + '/api/user/applyTeamOperate',
+						method: 'post',
+						data: {
+							id: id,
+							operateType: operateType
+						}
+					})
+					.then(result => {
+						if (result.data.code == 0) {
+							Toast('成功加入~');
+						} else {
+							Toast('拒绝加入~');
+						}
+						this.teamManage()
+					})
+					.catch(error => {
+						Toast('系统错误~');
+					})
+			}
+		},
+		created() {
+			this.getTeamManageMsg()
+			this.timeFormat()
+			this.teamManage()
+		}
+	}
+</script>
+
+<style>
+	.shareTitle {
+		text-align: center;
+		font-weight: normal;
+	}
+
+	#member-list .van-panel__footer {
+		text-align: left;
+		overflow: hidden;
+	}
+
+	#member-list .van-panel__footer span {
+		padding: 0 8px;
+	}
+
+	.infiLeft {
+		display: inline-block;
+		width: 52%;
+	}
+
+	.btnBox {
+		display: inline-block;
+	}
+
+	#member-list .van-panel {
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	#member-list .van-hairline--top-bottom::after {
+		border: none;
+	}
+
+	#member-list [class*=van-hairline]::after {
+		border: none;
+	}
+
+	.messageBtn {
+		padding-top: 15px;
+		text-align: right;
+	}
+
+	.history-msg .van-field__control {
+		text-align: right;
+	}
+
+	.history-msg .van-field .van-cell__title {
+		flex: 3;
+		max-width: 180px;
+		word-wrap: break-word
+	}
+
+	.null-tip {
+		line-height: 22px;
+	}
+
+	.null-tip span {
+		padding-left: 10px;
+		line-height: 22px;
+	}
+</style>

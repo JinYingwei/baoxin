@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="./css/main.css" />
+		<title>云微投sp-III</title>
+	</head>
+	<body>
+		<div class="proMain">
+			<div class="content">
+				<img src="img/product/sp-IV_01.jpg" >
+				<img src="img/product/sp-IV_02.jpg" >
+				<img src="img/product/sp-IV_03.jpg" >
+				<img src="img/product/sp-IV_04.jpg" >
+			</div>
+			<div class="payBtn">
+				<img src="img/payBtn.png" >
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		// 获取指定url参数
+		function GetQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) {
+				return unescape(r[2]);
+			}
+			return null;
+		}
+		var proId = GetQueryString('id')
+		var payBtn = document.querySelector('.payBtn')
+		payBtn.onclick = function(){
+			if(proId){
+				window.location.href='./pay.html?id='+proId
+			}
+		}
+	</script>
+</html>

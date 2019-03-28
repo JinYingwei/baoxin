@@ -1,0 +1,218 @@
+@r:50rem;
+
+/*header*/ 
+header{
+    width: 750/@r;
+    height: 96/@r;
+    line-height: 96/@r;
+    font-size: 32/@r;
+    background: #f2f2f2;
+    border-bottom: 2/@r solid #e4e4e4;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: 3;
+    .title{
+        float: left;
+        img{
+            width: 84/@r;
+            height: 96/@r;
+        }
+    }
+    .menuPic{
+        float: right;
+        img{
+            width: 118/@r;
+            height: 96/@r;
+        }
+    }
+}
+/*content*/
+.wrap{
+    position: absolute;
+    top: 98/@r;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin-top: 2/@r;
+    overflow: auto;
+    .productList{
+        height: 100%;
+        position: absolute;
+        // overflow: hidden;
+        li{
+            overflow: hidden;
+            width: 750/@r;
+            height: 100%;
+            &:first-child{
+                img{
+                    width: 750/@r;
+                    height: 100%;
+                }
+            }
+            &:not(.fList){
+                background: #f26d40;
+                .content{
+                    width: 616/@r;
+                    height: 970/@r;
+                    margin: 100/@r auto 54/@r;
+                    background: #fff;
+                    background-size: 370/@r 363/@r;
+                    box-shadow: 25/@r 25/@r 30/@r #cc5530;
+                    h2{
+                        position: relative;
+                        width: 460/@r;
+                        height: 57/@r;
+                        margin: 20/@r auto 0;
+                        background: url(../images/word.png) no-repeat;
+                        background-size: cover; 
+                    }
+                    p{
+                        margin: 0 auto;
+                        width: 410/@r;
+                        border-top: 1px solid #000;
+                    }
+                    .word{
+                        background-image: url(../images/word2.png);
+                        background-size: contain;
+                    }
+                    .word3{
+                        width: 415/@r;
+                        background-image: url(../images/word3.jpg);
+                    }
+                    .word4{
+                        width: 304/@r;
+                        background-image: url(../images/word4.jpg);
+                    }
+                    .wordBox{
+                        width: 400/@r;
+                        font-size: 28/@r;
+                        line-height: 48/@r;
+                        margin: 64/@r auto;
+                    }
+                }
+                .top{
+                    padding: 21/@r 0 0 30/@r;
+                    
+                    img{
+                        height: 49/@r;
+                        width: 52/@r;
+                    }
+                    span{
+                        font-size: 20/@r;
+                        vertical-align: top;
+                        line-height: 52/@r;
+                    }
+                }
+                .btPic{
+                    text-align: center;
+                    margin-top: 75/@r;
+                    img{
+                        width: 370/@r;
+                    }
+                }
+                .more{
+                    text-align: center;
+                    img{
+                        width: 50/@r;
+                        height: 50/@r;
+                    }
+                }
+            }
+            
+        }
+    }
+    .advBox{
+        width: 677/@r;
+        margin: 38/@r auto;
+        div{
+            text-align: center;
+            &:first-child{
+                height: 89/@r;
+                border-radius: 20/@r;
+                background: #fff;
+                font-size: 24/@r;
+                line-height: 89/@r;
+                margin-bottom: 14/@r;
+                img{
+                    width: 64/@r;
+                    height: 61/@r;
+                    vertical-align: middle;
+                    margin-right: 5/@r;
+                }
+                span{
+                    color: #5994f1;
+                    margin-left: 24/@r;
+                }
+            }
+            &:nth-of-type(2){
+                height: 157/@r;
+                border-radius: 20/@r;
+                background: #fff;
+                margin-bottom: 182/@r;
+                p{
+                    &:first-child{
+                        font-size: 36/@r;
+                        color:#3d69c1;
+                        line-height: 36/@r;
+                        padding-top: 32/@r;
+                        padding-bottom: 28/@r;
+                    }
+                    img{
+                        width: 32/@r;
+                        height: 32/@r;
+                    }
+                }
+            }
+        }
+        form{
+            width: 656/@r;
+            height: 1008/@r;
+            background: #fff;
+            border-radius: 20/@r;
+            margin: 14/@r auto;
+            h3{
+                font-size: 36/@r;
+                line-height: 118/@r;
+                color: #2d5ab3;
+                text-align: center;
+            }
+            .inpBox{
+                width: 572/@r;
+                margin: 0 auto;
+                font-size: 24/@r;
+            }
+            textarea{
+                height: 207/@r;
+                width: 100%;
+                background: #fff;
+                border: 2/@r solid #d2d2d2;
+                display: block;
+                padding: 0;
+                margin-bottom: 44/@r;
+                line-height: 74/@r;
+                text-indent: 22/@r; 
+                border-radius: 5/@r;
+            }
+            input{
+                border: 2/@r solid #d2d2d2;
+                display: block;
+                width: 100%;
+                height: 75/@r; 
+                border-radius: 5/@r;
+                text-indent: 22/@r;
+                margin-bottom: 40/@r;
+                color: #7f7e7e;
+                padding: 0;
+            }
+            #btn{
+                width: 563/@r;
+                height: 81/@r;
+                color: #fff;
+                margin: 68/@r auto;
+                background: #3d6cc8;
+            }
+        }
+    }
+}
+

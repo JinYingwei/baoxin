@@ -1,0 +1,166 @@
+<template>
+	<div>
+		<div class="center shadow-box">
+			<van-cell title="团队人数" icon="contact" :value='memSize'>
+				<van-icon slot="right-icon" style="color: red;" name="upgrade" class="van-cell__right-icon" /></van-cell>
+			<van-cell title="欠费人数" icon="gold-coin" value='0'>
+				<van-icon style="color: #fff;" slot="right-icon" name="arrow" class="van-cell__right-icon" /></van-cell>
+		</div>
+
+		<h3 class="shareTitle">成员</h3>
+		<div class="center shadow-box">
+			<van-swipe>
+				<van-swipe-item>
+					<ul class="memberList">
+						<li v-for="(item,index) in TeamMembers" :key="index">
+							<router-link tag='div' :to='/memberDetail/+item.userId'>
+								<img src="http://iconfont.alicdn.com/t/1531748288851.jpeg@100h_100w.jpg" alt="">
+								<strong>{{ item.userName }}</strong>
+							</router-link>
+						</li>
+					</ul>
+				</van-swipe-item>
+			</van-swipe>
+			<span v-show="hasTeamMembers" class="null-tip">
+				<van-icon name="info-o" />
+				<span>暂无成员</span>
+			</span>
+
+		</div>
+		<h3 class="shareTitle">排行</h3>
+		<div class="center shadow-box" id="member-rank">
+			<van-tabs>
+				<van-tab title='点单排行'>
+					<div>
+						<van-cell-group>
+							<van-cell :value="index+1" v-for="(item,index)  in rankList" :key="index">
+								<template slot="title">
+									<img src="http://iconfont.alicdn.com/t/1531748288851.jpeg@100h_100w.jpg" alt="">
+									<span class="van-cell-text van-cell-text-name">{{ item.singleRankName }}</span>
+									<!-- <span class="van-cell-text">12单</span> -->
+								</template>
+							</van-cell>
+						</van-cell-group>
+					</div>
+				</van-tab>
+				<van-tab title='接单排行'>
+					<div>
+						<van-cell-group>
+							<van-cell :value="index+1" v-for="(item,index)  in rankList" :key="index">
+								<template slot="title">
+									<img src="http://iconfont.alicdn.com/t/1531748288851.jpeg@100h_100w.jpg" alt="">
+									<span class="van-cell-text van-cell-text-name">{{ item.totalRankName }}</span>
+									<!-- <span class="van-cell-text">12单</span> -->
+								</template>
+							</van-cell>
+						</van-cell-group>
+					</div>
+				</van-tab>
+			</van-tabs>
+		</div>
+	</div>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				TeamMembers: [], //团队成员
+				memSize: '', //团队人数
+				rankList:[],
+				hasTeamMembers:false,//是否有团队成员,
+				
+			}
+		},
+		methods: {
+			//获取团队人员接口
+			getTeamMembers() {
+				this.axios({
+						url: baseURL + '/api/user/getTeamMembers',
+						method: 'get'
+					})
+					.then(result => {
+						if (result.data.code == 0 && result.data.data.memList.length) {
+							this.TeamMembers = result.data.data.memList
+							this.rankList = result.data.data.rankList
+							this.memSize = result.data.data.memSize
+						}else{
+							this.hasTeamMembers = true
+						}
+					})
+					.catch(error => {
+
+					})
+			},
+		},
+		created() {
+			//获取团队人员接口
+			this.getTeamMembers()
+		}
+	}
+</script>
+
+<style>
+	.shareTitle {
+		text-align: center;
+		font-weight: normal;
+	}
+
+	.memberList {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.memberList li {
+		width: 25%;
+		text-align: center;
+		margin-bottom: 10px;
+	}
+
+	.memberList li img {
+		width: 50px;
+		max-height: 50px;
+		border-radius: 50%;
+	}
+
+	.memberList li strong {
+		display: block;
+		font-weight: normal;
+	}
+
+	#member-rank img {
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		vertical-align: middle;
+	}
+
+	#member-rank .van-cell-text {
+		padding: 0 10px;
+		display: inline-block;
+		/* width: 26%; */
+		width: 46%;
+
+	}
+
+	#member-rank .van-cell-text-name {
+		text-align: center;
+	}
+
+	#member-rank .van-cell__title {
+		flex: 4;
+	}
+
+	#member-rank .van-cell__value {
+		line-height: 50px;
+	}
+
+	.null-tip {
+		line-height: 22px;
+	}
+
+	.null-tip span {
+		padding-left: 10px;
+		line-height: 22px;
+	}
+</style>

@@ -1,0 +1,68 @@
+a{
+  text-decoration: none
+}
+*{
+  font-size: 12px;
+}
+.center {
+  width: 94%;
+  margin: 0 auto;
+  margin-top: .266667rem /* 20/75 */;
+  padding: .4rem /* 30/75 */;
+  box-sizing: border-box;
+  border-radius: 0.266667rem /* 20/75 */;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 0.333333rem /* 25/75 */ rgba(0, 0, 0, 0.3);
+}
+.learn-tab em {
+  font-style: normal;
+  vertical-align: middle;
+}
+
+.learn-tab .van-icon {
+  vertical-align: middle;
+}
+.wxCodeTitle{
+  text-align: center;
+}
+.qrCodePath{
+  width: 60%;
+  display: block;
+  margin: 0 auto
+}
+.learn-top .title {
+  line-height: .813333rem /* 61/75 */;
+  display: flex;
+}
+.learn-top .title img{
+  width: .853333rem /* 64/75 */;
+  height: .813333rem /* 61/75 */;
+  vertical-align: middle;
+}
+.learn-top .title strong{
+  vertical-align: middle;
+  flex: 2;
+  text-align: left;
+  padding-left: .266667rem /* 20/75 */;
+}
+.learn-top .title strong:last-child{
+  text-align: left;
+  flex: 3;
+  padding-left: 0;
+}
+.learn-top .title strong:last-child a{
+  color: #5994f1;
+}
+.createTime{
+  padding-right: .4rem /* 30/75 */;
+  color: #878787;
+}
+.article-title h3{
+  font-size: .48rem /* 36/75 */;
+  margin:  .266667rem /* 20/75 */ 0;
+  font-weight: bold
+}
+#consult{
+  width: 100%;
+}

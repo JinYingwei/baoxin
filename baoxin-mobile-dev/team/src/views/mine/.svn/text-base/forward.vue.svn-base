@@ -1,0 +1,134 @@
+<template>
+	<div>
+		<div class="shadow-box center">
+			<van-cell-group id="cardTitle">
+				<van-field placeholder="请输入名片标题" v-model="updaData.xcxTitle"  label="名片标题" />
+			</van-cell-group>
+			<h4>名片转发封面</h4>
+			<div id="ImgSelfCover">
+				<van-uploader :after-read="onReadSelfCover">
+					<van-icon name="photograph" />
+				</van-uploader>
+			</div>
+			<h4>系统封面模板</h4>
+			<div class="sysMuban">
+				<van-swipe @change="onChange">
+					<van-swipe-item>
+						<img src="http://www.sinelinked.com/static/other/pic-bg1.jpg" />
+					</van-swipe-item>
+					<van-swipe-item>
+						<img src="http://www.sinelinked.com/static/other/pic-bg2.jpg" />
+					</van-swipe-item>
+					<van-swipe-item>
+						<img src="http://www.sinelinked.com/static/other/pic-bg3.jpg" />
+					</van-swipe-item>
+				</van-swipe>
+			</div>
+		</div>
+
+		<div class="btnSubmit center">
+			<van-button type="primary" @click ="submitUpde" size="large">提交</van-button>
+		</div>
+
+	</div>
+</template>
+
+<script>
+	import {Toast} from 'vant'
+	export default {
+		data() {
+			return {
+				updaData: {
+					xcxTitle:'',// 小程序转发标题
+					shareImageStr:''// 小程序转发封面
+				}
+			}
+		},
+		methods: {
+			onReadSelfCover(file) {
+				var ImgSelfCover = document.getElementById("ImgSelfCover")
+				this.updaData.shareImageStr = file.content
+				ImgSelfCover.style.backgroundImage = "url(" + file.content + ")"
+			},
+			onChange(index) {
+				console.log('当前 Swipe 索引：' + index);
+			},
+			//顾问更新信息维护接口
+			submitUpde() {
+				if(!this.updaData.xcxTitle){
+					Toast.fail('请输入标题');
+					return
+				}
+				
+				var that = this
+				var formData = new FormData()
+			// 小程序转发标题
+				formData.append('teamXcxTitle', this.updaData.xcxTitle)
+				// 小程序转发封面
+				formData.append('shareImageStr', this.updaData.shareImageStr)
+				this.axios({
+						method: "post",
+						url: baseURL + '/api/team/update',
+						headers: {
+							'Content-Type': 'multipart/form-data'
+						},
+						data: formData
+					})
+					.then(result => {
+						if(result.data.code == 0){
+							Toast.success('修改成功');
+							setTimeout(function(){
+								that.$router.push('/mine')
+							},3000)
+						}
+					})
+					.catch(err => {
+						console.log(err)
+						Toast(err.response.data.error);
+					})
+			}
+		},
+	}
+</script>
+
+<style scoped>
+	#ImgSelfCover {
+		text-align: center;
+		width: 100%;
+		height: 3.16667rem;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+
+	#ImgSelfCover .van-icon {
+		font-size: 30px;
+	}
+
+	#ImgSelfCoverMany {
+		font-size: 30px;
+	}
+
+	#ImgSelfCoverMany .van-uploader {
+		width: 100%;
+		text-align: center;
+	}
+
+	.sysMuban {
+		height: 200px;
+		overflow: hidden;
+	}
+
+	.sysMuban .van-swipe {
+		height: 200px;
+	}
+
+	#cardTitle .van-cell {
+		padding-left: 0;
+		font-weight: bold !important;
+	}
+
+	.van-field .van-cell__title {
+		font-weight: bold !important;
+	}
+</style>

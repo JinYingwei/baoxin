@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>在线客服</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css" />
+</head>
+
+<body>
+    <div class="app">
+        <ul class="dialogue-wap">
+            <li class="open-tip">
+                <div class="char-heads"><img src="./img/kefu.png"></div>
+                <div class="char-con">
+                    您好，我是柳哨声声客服，您对我们有什么问题或者建议，可以向我咨询，我会尽快答复您。
+                </div>
+            </li>
+
+            <li class="options-set">
+                <div class="char-heads"><img src="./img/kefu.png"></div>
+                <div class="char-con">
+                    <strong class="top-title">请选择您要进行的操作</strong>
+                    <div class="option">
+                        <div class="option-items" data-type="option" data-tip="请输入您的咨询内容">咨询</div>
+                        <div class="option-items" data-type="option"  data-tip="请输入您的建议内容">建议</div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="main-con">
+                <div class="char-heads"><img src="./img/kefu.png"></div>
+                <div class="char-con">
+                    <strong class="top-title">请输入您的咨询内容</strong>
+                    <div class="option">
+                        <textarea id="advisoryContent" placeholder="请输入您的内容... .."></textarea>
+                    </div>
+                </div>
+            </li>
+
+            <li class="contact">
+                <div class="char-heads"><img src="./img/kefu.png"></div>
+                <div class="char-con">
+                    <strong class="top-title">请输入您的联系方式</strong>
+                    <div class="option">
+                        <input type="text" id="name" placeholder="请输入您的姓名">
+                        <input type="number" id="phone" placeholder="请输入您的联系方式">
+                    </div>
+                </div>
+            </li>
+            <li class="end-tip">
+                    <div class="char-heads"><img src="./img/kefu.png"></div>
+                    <div class="char-con">
+                            感谢咨询/建议，我们会尽快处理。
+                    </div>
+            </li>
+        </ul>
+
+        <!-- <div class="submit-btn">提交</div> -->
+    </div>
+    <script src="./js/layer_mobile/layer.js"></script>
+    <script src="http://ii.sinelinked.com/lib/axios.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

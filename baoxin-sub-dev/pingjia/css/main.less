@@ -1,0 +1,150 @@
+/* rest */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+ul,
+li {
+    list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+strong {
+    font-weight: normal;
+}
+
+html {
+    font-size: 13.33333333vw;
+    background: #f9f9f9;
+    background: url(../img/top_bg.png) no-repeat center top;
+    background-size: contain
+}
+
+body {
+    padding-top: 0.12rem;
+}
+
+@media (min-width: 560px) {
+    html {
+        font-size: 54px;
+    }
+}
+
+// begin
+.app {
+    width: 6.99rem;
+    margin: 0 auto;
+}
+
+#top-tab {
+    display: flex;
+    justify-content: space-around;
+    border: none;
+    .layui-this {
+        color: #fff;
+    }
+    :after {
+        border-color: #fff;
+    }
+    li{
+        font-size: 0.30rem;
+    }
+}
+
+.shadow {
+    background: #fff;
+    border-radius: 0.12rem;
+    box-shadow: 0 0 0.16rem rgba(0, 0, 0, .2)
+}
+
+.advise-top {
+    width: 100%;
+    margin-bottom: 0.32rem;
+    li {
+        line-height: 0.86rem;
+        font-size: 0.26rem;
+        color: #424242;
+        display: flex;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 0 0.46rem;
+        input{
+            border: none;
+            outline: none;
+            padding: 0;
+            text-align: right
+        }
+        .start-icon{
+            color: red;
+            display: inline-block;
+            vertical-align: middle
+        }
+    }
+}
+
+.advise-middle{
+    margin-bottom: 0.32rem;
+    box-sizing: border-box;
+    padding: 0 0.46rem;
+    // padding-bottom: 0.26rem;
+    h5{
+        line-height: 0.86rem;
+    }
+    .option{
+        display: flex;
+        flex-wrap: wrap;
+        li{
+            margin-bottom: 0.36rem;
+        }
+    }
+}
+.advise-bottom{
+    box-sizing: border-box;
+    padding: 0 0.46rem;
+    padding-bottom: 0.46rem;
+    h5{
+        line-height: 0.86rem;
+    }
+    textarea{
+        resize: none;
+        border: none;
+        padding: 0;
+        min-height: auto;
+    }
+}
+#advise-btn{
+    margin-top: 0.56rem;
+    background: #3d6cc8;
+    width: 100%;
+}
+#complain-btn{
+    margin-top: 0.56rem;
+    background: #3d6cc8;
+    width: 100%;
+}
+
+#layui-laydate1 .layui-this{
+    background-color: #3d6cc8 !important;
+}
+#layui-laydate2 .layui-this{
+    background-color: #3d6cc8 !important;
+}
+.layui-form .layui-form-checked span, .layui-form-checked:hover span{
+    background-color: #3d6cc8 !important;
+    padding: 0 6px;
+}
+.layui-form .layui-form-checkbox span{
+    padding: 0 6px;
+}
+.layui-form-checked i, .layui-form-checked:hover i{
+    color: #3d6cc8 !important;
+}
+.layui-form-checkbox span{
+    font-size: 0.22rem !important;
+}

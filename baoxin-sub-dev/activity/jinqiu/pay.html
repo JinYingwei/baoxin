@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
+		<link rel="stylesheet" href="./lib/LArea.css">
+		<title>预存费用</title>
+		<style type="text/css">
+			html,
+			body {
+				background: #f9f9f9;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="payMain">
+			<div class="topBack">
+				<span>
+					<</span>预存费用 </div> <div class="goods">
+						<ul>
+							<li>
+								<label><strong>* </strong>收货人姓名</label>
+								<input type="text" name="" id="userName" placeholder="请输入收货人姓名" value="" />
+							</li>
+							<li>
+								<label><strong>* </strong>手机号</label>
+								<input type="text" name="" id="phone" placeholder="请输入手机号" value="" />
+							</li>
+							<li>
+								<label><strong>* </strong>地址信息</label>
+								<!-- <input type="text" name="" id="" placeholder="请选择地区" value="" /> -->
+								<input class="inputs" id="address" type="text" readonly="" placeholder="请选择地区" />
+								<input id="addressResrlt" type="hidden" />
+							</li>
+							<li>
+								<label><strong>* </strong>详细地址</label>
+								<input type="text" name="addressDetail" id="addressDetail" placeholder="请输入详细地址" value="" />
+							</li>
+						</ul>
+			</div>
+			<div class="productCar">
+				<div class="product">
+					<div class="productImg">
+						<img src="img/index/sp-I.png">
+					</div>
+					<div class="productInfo">
+						<strong>云微投sp-Ⅳ微投投影仪便携式移动商务专用智能微投</strong>
+						<p><span>x1</span><em>¥1999</em></p>
+					</div>
+				</div>
+				<div class="product sale">
+					<div class="productImg">
+						<img src="img/index/sale.png">
+						<span class="txt"><em>50元</em>代金券</span>
+					</div>
+					<div class="productInfo">
+						<strong>50元代金券(代金券将自动发放至您账户)</strong>
+						<p><span>x1</span><em>¥50</em></p>
+					</div>
+				</div>
+			</div>
+			<div class="payBtnBox">
+				<!-- 支付¥1900 -->
+			</div>
+		</div>
+	</body>
+	<script src="http://ii.sinelinked.com/lib/axios.min.js"></script>
+	<script src="./lib/LAreaData2.js"></script>
+	<script src="./lib/LArea.js"></script>
+	<script type="text/javascript">
+		// 获取指定url参数
+		function GetQueryString(name) {
+			var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+			var r = window.location.search.substr(1).match(reg);
+			if (r != null) {
+				return unescape(r[2]);
+			}
+			return null;
+		}
+		var proId = GetQueryString('id')
+		
+
+		var proObj = [{
+				id: '5b7a7d30f70bd703c0d931d4',
+				name: '云微投sp-I微投投影仪便携式移动商务专用智能微投',
+				price: 3600,
+				sale: 100,
+				thumbnail:'./img/index/sp-I.png'
+			},
+			{
+				id: '5b728024e87b482df8194562',
+				name: '云微投sp-II微投投影仪便携式移动商务专用智能微投',
+				price: 4800,
+				sale: 200,
+				thumbnail:'./img/index/sp-II.png'
+			},
+			{
+				id: '5b728a7bdb61e635a0a5def7',
+				name: '云微投sp-III微投投影仪便携式移动商务专用智能微投',
+				price: 3800,
+				sale: 100,
+				thumbnail:'./img/index/sp-III.png'
+			},
+			{
+				id: '5b729096db61e635a0a5def9',
+				name: '云微投sp-IV微投投影仪便携式移动商务专用智能微投',
+				price: 1900,
+				sale: 50,
+				thumbnail:'./img/index/sp-IV.png'
+			}
+		]
+		// 根据ID匹配商品
+		var activePro;
+		if(proId){
+			activePro = proObj.filter(item=>{
+				return item.id == proId
+			})
+			// 商品
+			$('.productImg img').src = activePro[0].thumbnail
+			$('.productInfo strong').innerHTML = activePro[0].name
+			$('.productInfo em').innerHTML = '¥'+activePro[0].price
+			// 优惠券
+			$('.sale .txt em').innerHTML = activePro[0].sale+'元'
+			$('.sale .productInfo strong').innerHTML = activePro[0].sale+'元代金券(代金券将自动发放至您账户)'
+			$('.sale .productInfo em').innerHTML = activePro[0].sale+'元'
+			
+			$('.payBtnBox').innerHTML = '支付¥'+activePro[0].price
+		}
+		
+		
+
+
+		// init 地区选择
+		var LArea = new LArea();
+		LArea.init({
+			'trigger': '#address',
+			'valueTo': '#addressResrlt',
+			'keys': {
+				id: 'value',
+				name: 'text'
+			},
+			'type': 2,
+			'data': [provs_data, citys_data, dists_data]
+		});
+		// selecter
+		function $(target) {
+			return document.querySelector(target)
+		}
+		// 支付
+		var payBtn = $('.payBtnBox')
+		var myreg = /^1(3|4|5|7|8)[0-9]\d{8}$/;
+		payBtn.onclick = function() {
+			var tel = $('#phone').value
+			var address = $('#address').value
+
+			if (!$('#userName').value) {
+				alert('请输入收货人姓名')
+				return
+			} else if (!myreg.test(tel)) {
+				alert('请输入有效的手机号码')
+				return
+			}else if(!address){
+				alert('请选择地址信息')
+			} else if (!$('#addressDetail').value) {
+				alert('请输入详细地址')
+				return
+			}
+// axios公共配置
+axios.defaults.withCredentials = true;
+axios.defaults.headers.common['Accept'] = `text/plain, text/html,application/json,text/javascript, application/javascript;${document.cookie}`;
+
+
+			// 跳转支付
+			axios({
+					url: 'http://ii.sinelinked.com/tg_web/api/recharge/authorize',
+					method: 'get',
+					params:{
+						product:proId,
+						consignee:$('#userName').value,
+						phone:$('#phone').value,
+						province:address.split(',')[0],
+						city:address.split(',')[1],
+						proper:address.split(',')[2],
+						address:$('#addressDetail').value
+					}
+				})
+				.then(result => {
+					console.log(result);
+					location.href=result.data.data.authorize_url
+				})
+				.catch(error => {
+					console.log(error);
+				})
+		}
+		
+		
+		var goBack = $('.topBack span')
+		goBack.onclick = function(){
+			window.history.go(-1)
+		}
+	</script>
+</html>

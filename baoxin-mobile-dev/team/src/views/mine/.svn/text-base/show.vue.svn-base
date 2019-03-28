@@ -1,0 +1,203 @@
+<template>
+	<div>
+		<div class="shadow-box center">
+			<h3>个人秀封面</h3>
+			<div id="ImgSelfCover">
+				<van-uploader name="selfShowCoverFile" :after-read="onReadSelfCover">
+					<van-icon name="photograph" />
+				</van-uploader>
+			</div>
+			<van-cell-group id="nowIdea">
+				<van-field label="此刻的想法" type="textarea" v-model="updaData.selfShowSummary" placeholder="请输入内容" rows="1" autosize />
+			</van-cell-group>
+			<h3>个人秀相片</h3>
+			<div id="ImgSelfCoverMany">
+				<van-uploader :after-read="onReadSelfCoverMany" multiple>
+					<van-icon name="add" />
+				</van-uploader>
+				<ul class="ImgSelfCoverManyList">
+					<li v-for="(item,index) in updaData.selfShowImageFile" :key="index">
+						<img :src="item">
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="btnSubmit center">
+			<van-button type="primary" size="large" @click="submitUpde">提交</van-button>
+		</div>
+	</div>
+</template>
+
+<script>
+	import {Toast} from 'vant'
+
+	export default {
+		name: 'show',
+		data() {
+			return {
+				//顾问更改数据 
+				updaData: {
+					selfShowSummary: '', //个人秀此刻的想法（字数<200）
+					selfShowCoverFile: {}, //个人秀封面图片
+					selfShowImage: [], //个人秀图片（上限为9张）
+					selfShowImageFile: [] //个人秀图片地址（页面用，不传后台）
+				},
+			}
+		},
+		methods: {
+			//个人秀封面 
+			onReadSelfCover(file) {
+				var ImgSelfCover = document.getElementById("ImgSelfCover")
+				ImgSelfCover.style.backgroundImage = "url(" + file.content + ")"
+				this.updaData.selfShowCoverFile = file.file
+			},
+			//个人秀多图 
+			onReadSelfCoverMany(file) {
+				if (file instanceof Array) {
+					if ((this.updaData.selfShowImageFile.length + file.length) > 9) {
+						Toast.fail('最多上传9张');
+						return
+					}
+					file.map(item => {
+						this.updaData.selfShowImageFile.push(item.content)
+						this.updaData.selfShowImage.push(item.file)
+					})
+				} else {
+					if ((this.updaData.selfShowImageFile.length + 1) > 9) {
+						Toast.fail('最多上传9张');
+						return
+					}
+					this.updaData.selfShowImageFile.push(file.content)
+					this.updaData.selfShowImage.push(item.file)
+				}
+			},
+			//顾问更新信息维护接口
+			submitUpde() {
+				if(Object.getOwnPropertyNames(this.updaData.selfShowCoverFile).length == 1){
+					Toast.fail('未选择图片');
+					return
+				}
+				if(!this.updaData.selfShowSummary){
+					Toast.fail('此刻想法未填写');
+				}
+				Toast.loading({
+					mask: true,
+					message: '加载中...'
+				});
+				
+				var that = this
+				var formData = new FormData()
+				//个人秀封面 
+				formData.append('teamShowCoverFile', this.updaData.selfShowCoverFile)
+				//个人秀此刻的想法
+				formData.append('teamShowSummary', this.updaData.selfShowSummary)
+				//个人秀图片（多图）
+				for (var i = 0; i < this.updaData.selfShowImage.length; i++) {
+					formData.append('teamShowImage', this.updaData.selfShowImage[i])
+				}
+
+				this.axios({
+						method: "post",
+						url: baseURL + '/api/team/update',
+						headers: {
+							'Content-Type': 'multipart/form-data'
+						},
+						data: formData
+					})
+					.then(result => {
+						if(result.data.code == 0){
+							Toast.clear();
+							Toast.success('修改成功');
+							setTimeout(function(){
+								that.$router.push('/mine')
+							},3000)
+						}else{
+							Toast.clear();
+							Toast.fail('修改失败');
+						}
+						
+					})
+					.catch(err => {
+						Toast.clear();
+						console.log(err)
+						Toast(err.response.data.error);
+					})
+			},
+			//查询顾问信息
+			 search(){
+				 this.axios({
+				 		method:"get",
+				 		url:baseURL+'/api/agent/search',
+				 	}
+				 )
+				 .then(result=>{
+				 	console.log(result)
+				 })
+				 .catch(err=>{
+				 	console.log(err)
+				 })
+			 }
+		},
+		created(){
+			//查询顾问信息
+			this.search()
+		}
+	}
+</script>
+
+<style scoped>
+	#ImgSelfCover {
+		text-align: center;
+		width: 100%;
+		height: 3.66667rem;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-position: center;
+	}
+
+	#ImgSelfCover .van-icon {
+		font-size: 30px;
+	}
+
+	#ImgSelfCoverMany {
+		font-size: 30px;
+	}
+
+	.ImgSelfCoverManyList {
+		display: flex;
+		/* justify-content: space-around; */
+		flex-wrap: wrap;
+	}
+
+	#ImgSelfCoverMany .van-uploader {
+		width: 100%;
+		text-align: center;
+	}
+
+	.ImgSelfCoverManyList li {
+		width: 33%;
+		padding: 5px;
+		box-sizing: border-box;
+	}
+
+	.ImgSelfCoverManyList li img {
+		width: 100%;
+		max-height: 110px;
+	}
+
+	#nowIdea .van-cell {
+		padding-left: 0;
+	}
+
+	#nowIdea .van-cell {
+		font-weight: 700;
+	}
+
+	.van-cell__value {
+		font-weight: normal;
+	}
+
+	.van-field__body {
+		font-weight: normal;
+	}
+</style>

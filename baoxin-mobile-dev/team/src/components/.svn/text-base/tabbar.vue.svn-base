@@ -1,0 +1,67 @@
+<template>
+	<div>
+		<van-tabbar v-model="selected" @change="hand">
+			<van-tabbar-item icon="completed" :to="{name:'statistical'}">业务统计</van-tabbar-item>
+			<van-tabbar-item icon="contact":to="{name:'member'}">团队人员</van-tabbar-item>
+			<van-tabbar-item icon="records"  dot  :to="{name:'manage'}">团队管理</van-tabbar-item>
+			<van-tabbar-item icon="gold-coin" :to="{name:'cost'}">费用管理</van-tabbar-item>
+			<van-tabbar-item icon="discount" :to="{path:'/mine'}">信息维护</van-tabbar-item>
+		</van-tabbar>
+	</div>
+</template>
+
+<script>
+	export default {
+		name: "tabbar",
+		data: function () {
+			return {
+				selected: 0,
+				title: ['业务统计', '团队人员', '团队管理', '费用管理', '信息维护']
+			};
+		},
+		methods: {
+			//将所选tabbar名称传递给header组件显示 
+			hand() {
+				this.bus.$emit("myFun", this.title[this.selected]) //$emit这个方法会触发一个事件
+			},
+			//底部导航的处理 
+			changeTabBarActive() {
+				var nowPath = this.$route.path
+				
+				switch(nowPath){
+					case '/member':
+						this.selected = 1;
+						break;
+					case '/manage':
+						this.selected = 2;
+						break;
+					case '/cost':
+						this.selected = 3;
+						break;
+					case '/mine':
+						this.selected = 4;
+						break;	
+				}
+				
+			},
+		},
+		watch: {
+			$route(to, from) {
+				switch (to.path){
+					case '/':
+						this.selected = 0;
+						break;
+					default:
+						break;
+				}
+			}
+		},
+		created(){
+			this.changeTabBarActive()
+		}
+	};
+</script>
+
+<style scoped>
+
+</style>

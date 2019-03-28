@@ -1,0 +1,21 @@
+<template>
+	<div>
+	<div class="center shadow-box">
+		<van-cell title="团队收入" icon="cash-back-record" value='0' is-link></van-cell>
+		<van-cell title="欠费额度" icon="after-sale" value='0' is-link></van-cell>
+		<van-cell title="充值" icon="points" value='0' is-link></van-cell>
+		<van-cell title="提现" icon="idcard" value='0' is-link></van-cell>
+
+	</div>
+	</div>
+</template>
+
+<script>
+	export default {
+		
+	}
+</script>
+
+<style scoped>
+
+</style>

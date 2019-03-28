@@ -1,0 +1,264 @@
+/* rest */
+* {
+	padding: 0;
+	margin: 0;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+strong {
+	font-weight: normal;
+}
+
+html {
+	font-size: 13.33333333vw;
+	background: #fff7e9;
+}
+
+@media (min-width: 560px) {
+	html {
+		font-size: 54px;
+	}
+}
+.taobaoMask{
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, .5);
+	z-index: 100;
+	top: 0;
+	left: 0;
+	display: none
+}
+.taobaoMaskCon{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	width: 5rem;
+	padding: 0.3rem;
+	font-size: 0.24rem;
+	background: #fff;
+	border-radius: 0.15rem;
+	line-height: 0.4rem;
+	text-align: center
+
+}
+.taobaoMaskCon h2{
+	text-align: center
+
+}
+/* index */
+.main .proInfo{
+	position: relative;
+	width: 100%;
+	font-size: 0;
+}
+.main .proInfo .taobaoWebsite{
+	position: absolute;
+	top: 3.62rem;
+	left: 2.72rem;
+	width: 1.30rem;
+	height: 0.4rem;
+}
+.main .proInfo .officeWebsite{
+	position: absolute;
+	top: 3.66rem;
+	left: 5.30rem;
+	width: 1.30rem;
+	height: 0.4rem;
+}
+.main .proInfo img {
+	display: block;
+	width: 100%;
+	font-size: 0;
+}
+.main .proList{
+	display: flex;
+	flex-wrap: wrap;
+}
+.main .proList .item{
+	display: block;
+	width: 50%;
+	position: relative;
+}
+.main .proList .item:nth-child(odd) .toPayBtn{
+	left:0.2rem;
+}
+.main .proList a{
+	display: block;
+	width: 100%;
+}
+.main .proList img{
+	width: 100%;
+	display: block;
+}
+.toPayBtn{
+	width: 100%;
+	height: 0.78rem;
+	position: absolute;
+	text-align: center;
+	bottom: 0.86rem;
+}
+.main .proList .toPayBtn img{
+	width: 2.06rem;
+	height: 0.74rem;
+	display: inline-block;
+}
+/* proBottom */
+.proBottom img{
+	width: 100%;
+	display: block;
+}
+/*
+ 5b7a7d30f70bd703c0d931d4
+ 5b728024e87b482df8194562
+ 5b728a7bdb61e635a0a5def7
+ 5b729096db61e635a0a5def9
+ */
+
+/* public */
+.payBtn{
+	
+	height: 2rem;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #fffcf6;
+}
+.payBtn img{
+	display: block;
+	width: 2.06rem;
+	height: 0.74rem;
+}
+
+/* 产品详情 */
+.proMain .content img{
+	display: block;
+	width: 100%;
+}
+
+/* pay */
+.topBack{
+	width: 100%;
+	height: 0.92rem;
+	text-align: center;
+	font-size: 0.28rem;
+	color: #333;
+	text-align: center;
+	line-height: 0.92rem;
+	background: #fff;
+	border-bottom: 1px solid #e2e2e2;
+	position: relative;
+}
+.topBack span{
+	position: absolute;
+	left: 0.33rem;
+	font-family: simsun;
+	width: 0.55rem;
+}
+.goods{
+	width: 7.12rem;
+	margin: 0 auto;
+	margin-top: 0.45rem;
+	background: #fff;
+	padding: 0.50rem 0.34rem;
+	box-sizing: border-box;
+	font-size: 0.26rem;
+}
+.goods li{
+	line-height: 0.48rem;
+	margin-bottom: 0.4rem;
+}
+.goods li label{
+	/* padding-right: 0.24rem; */
+	display: inline-block;
+	width: 1.80rem;
+}
+.goods li strong{
+	color: red;
+	vertical-align: middle;
+}
+.goods li input{
+	border: none;
+	border-bottom: 1px solid #999;
+	font-size: 0.22rem;
+	outline: none;
+}
+/* productCar */
+.productCar{
+	width: 7.12rem;
+	margin: 0 auto;
+	margin-top: 0.45rem;
+	background: #fff;
+	padding: 0.54rem 0.34rem;
+	box-sizing: border-box;
+	font-size: 0.26rem;
+}
+.product{
+	border-bottom: 1px solid #dddddd;
+	padding-bottom: 0.2rem;
+	font-size: 0.22rem;
+}
+.productImg{
+	margin-right: 0.42rem;
+	display: block;
+	position: relative;
+}
+.productCar .product{
+	display: flex;
+	width: 100%;
+	justify-content: space-between;
+}
+.productImg img{
+	max-width: 1.62rem;
+}
+.productInfo p{
+	display: flex;
+	justify-content: space-between;
+	line-height: 0.52rem;
+	
+}
+.productInfo p em{
+	font-style: normal;
+}
+.sale{
+	padding-top: 0.4rem;
+	padding-bottom: 0;
+	border: none;
+}
+.sale .txt{
+	position: absolute;
+	top: 0.14rem;
+	left: 0.36rem;
+	text-align: center;
+	line-height: 0.32rem;
+	vertical-align: middle;
+	color: #fc5311;
+}
+.sale .txt em{
+	display: block;
+	color: #fc5311;
+	font-weight: bold;
+	font-style: normal;
+}
+.payBtnBox{
+	width: 2.60rem;
+	height: 0.8rem;
+	border-radius: 0.12rem;
+	background: #4e8cee;
+	text-align: center;
+	line-height: 0.8rem;
+	color: #fff;
+	font-size: 0.3rem;
+	margin: 0.36rem auto;
+}

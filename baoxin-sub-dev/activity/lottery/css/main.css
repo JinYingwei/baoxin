@@ -1,0 +1,260 @@
+/* rest */
+* {
+	padding: 0;
+	margin: 0;
+}
+
+ul,
+li {
+	list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+strong {
+	font-weight: normal;
+}
+
+html {
+	font-size: 13.33333333vw;
+}
+
+@media (min-width: 560px) {
+	html {
+		font-size: 54px;
+	}
+}
+
+html,
+body {
+	width: 100%;
+	height: 100%;
+	/* overflow: hidden; */
+	background: #6f1716;
+}
+
+/* #app */
+#app {
+	width: 100%;
+	height: 100%;
+	background: url(http://ii.sinelinked.com/sub/activity/lottery/img/bg.jpg) no-repeat;
+	background-size: cover;
+}
+
+/* noYet 未抽奖 */
+.noYet {
+	position: relative;
+}
+
+.noYet .lofferyTitle {
+	display: block;
+	width: 4.46rem;
+	height: 4.25rem;
+	
+	margin: 0 auto;
+	transition: .5s ease-in-out;
+	transform: translateY(-4.25rem);
+}
+
+.noYet .lofferyTitle.down {
+	transform: translateX(0);
+}
+
+/* eggBox */
+.eggBox {
+	width: 6rem;
+	/* width: 100%; */
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+	/* top: 4.76rem; */
+	margin-top: 0.42rem;
+}
+.chuizi{
+	position: absolute;
+	top: 4.98rem;
+	right: 0;
+	transition: .5s;
+	z-index: 20;
+	width: 1.20rem;
+}
+.chuizi img{
+	width: 1.20rem;
+}
+.eggBox ul {
+	position: relative;
+	display: flex;
+	justify-content: space-around;
+}
+.eggBox .Openegg{
+	display: none;
+}
+.eggBox ul li:nth-child(1) {
+	left: 0;
+}
+
+.eggBox ul li:nth-child(2) {
+	left: 2.15rem;
+}
+
+.eggBox ul li:nth-child(3) {
+	left: 4.26rem;
+}
+/* .eggBox ul li>div{
+	padding-top: 0.5rem;
+} */
+.eggBox .fullEgg {
+	width: 1.57rem;
+}
+
+.eggBox ul li strong {
+	font-family: "microsoft yahei";
+	display: block;
+	/* width: 1.33rem; */
+	height: 0.36rem;
+	margin: 0 auto;
+	font-size: 0.14rem;
+	color: #fedeb7;
+	text-align: center;
+	line-height: 0.36rem;
+	background: rgba(0, 0, 0, .3);
+	border-radius: 0.2rem;
+	padding: 0 0.08rem;
+	margin-bottom: 0.18rem;
+}
+/* Openegg */
+#openEggBox .Openegg{
+	/* display: none; */
+	width: 2.2rem;
+}
+#openEggBox .closeEgg{
+	/* display: none; */
+}
+#openEggBox li>strong{
+	display: none;
+}
+/* activeEgg 中奖了 */ 
+.eggBox .activeEgg strong{
+	display: none;
+}
+.eggBox .activeEgg .Openegg{
+	display: block;
+}
+.eggBox .activeEgg .closeEgg{
+	display: none;
+}
+.eggBox .activeEgg .lofferyOk{
+
+}
+#eggBoxNo{
+	margin-top: 0.8rem
+}
+#eggBoxNo ul li strong{
+	display: none;
+}
+.eggBox .activeEggNO strong{
+	display: none;
+}
+.eggBox .activeEggNO .Openegg{
+	display: block;
+}
+.eggBox .activeEggNO .closeEgg {
+	display: none;
+}
+/* 中奖弹窗 */
+.alleryLoffery {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	display: block;
+	transition: .2s linear;
+	transform: scale(0);
+	/* display: none; */
+}
+.alleryLoffery .lofferyOk{
+	width: 100%;
+}
+
+/* 活动规则 */
+.rules{
+	width: 7rem;
+	height: 4.54rem;
+	margin: 0 auto;
+	margin-top: 0.4rem;
+	/* display: none; */
+}
+.rules img{
+	width: 100%;
+	width: 7rem;
+	height: 4.54rem;
+}
+.numbers p{
+	font-size: 0.24rem;
+	padding: 0 0.2rem;
+	color: #983c0f;
+	line-height: 0.55rem;
+}
+/* <!-- 抽奖概率、人数 --> */
+.totalNum{
+	background: url(http://ii.sinelinked.com/sub/activity/lottery/img/egg.png) no-repeat left 0.10rem;
+	background-size: 0.16rem 0.24rem;
+}
+.totalNum_person{
+	background: url(http://ii.sinelinked.com/sub/activity/lottery/img/egg.png) no-repeat left 0.10rem;
+	background-size: 0.16rem 0.24rem;
+}
+.numbers{
+	width: 7rem;
+	height:3.37rem;
+	margin: 0 auto;
+	margin-top: 0.26rem;
+	background: url(http://ii.sinelinked.com/sub/activity/lottery/img/rules2.png) no-repeat;
+	background-size: cover;
+	box-sizing: border-box;
+	padding-top: 1.1rem;
+	padding-left: 0.4rem;
+	padding-right: 0.4rem;
+	display: none;
+}
+.numbers table{
+	width: 100%;
+	text-align: center;
+}
+.numbers tr{
+	height: 0.45rem;
+}
+.numbers th{
+	font-size: 0.18rem;
+	color: #fedeb7;
+	font-weight: normal;
+	width: 33.333%;
+}
+.numbers td{
+	font-size: 0.18rem;
+	color: #fedeb7;
+	font-weight: normal;
+}
+
+
+/* 未中奖 */
+.noloffery{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	transition: .2s linear;
+	transform: scale(0);
+}
+.noloffery img{
+	display: block;
+	width: 100%;
+	/* height: 100%; */
+}

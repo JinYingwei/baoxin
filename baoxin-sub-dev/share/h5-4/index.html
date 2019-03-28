@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>h5-4</title>
+    <link rel="stylesheet" href="../public/reset.css">
+    <link rel="stylesheet" href="../public/common.css">
+    <link rel="stylesheet" href="../public/animate.min.css">
+</head>
+<script>
+    (function() {
+        var html = document.documentElement,
+            htmlWidth = html.offsetWidth;
+        html.style.fontSize = htmlWidth / 15 + 'px';
+    })()
+
+    // document.addEventListener('touchstart', function(ev) {
+    //     ev.preventDefault();
+    // });
+    document.addEventListener('touchstart', function(e) {
+        if (e.targetTouches.length === 2) {
+            e.preventDefault()
+        }
+    }), {
+        passive: false
+    };
+    // document.addEventListener('touchstart', function(event) {
+    //     // 判断默认行为是否可以被禁用
+    //     if (event.cancelable) {
+    //         // 判断默认行为是否已经被禁用
+    //         if (!event.defaultPrevented) {
+    //             event.preventDefault();
+    //         }
+    //     }
+    // }, false);
+</script>
+
+<body style="background-color:#79b7e8;">
+    <div class="wrap swiper-container">
+        <ul class="productList swiper-wrapper">
+            <li class="fLis swiper-slide">
+                <div class="pic ani" swiper-animate-effect="zoomIn" swiper-animate-duration="1.5s"><img src="images/backdrop-blue.jpg"></div>
+                <h2 class="ani" swiper-animate-effect="bounceInDown" swiper-animate-duration="1s">
+                    <img src="images/logo.png">
+                    <span>保信云顾问</span>
+                </h2>
+                <div class="pic ani" swiper-animate-effect="lightSpeedIn"><img src="images/why-text.png"></div>
+                <div class="more"><img src="images/more.png"></div>
+            </li>
+            <li class="swiper-slide">
+                <h2 class="title">
+                    <img src="images/logo.png">
+                    <span>保信云顾问</span>
+                </h2>
+                <div class="content">
+                    <h2 class="ani" swiper-animate-effect="fadeInLeft">一、免责期短的好</h2>
+                    <div class="intro">
+                        <p class="ani" swiper-animate-effect="fadeInLeft">我们都知道，保险公司免责期，少则90天，长则一年。重疾险保费对等待期的长短很敏感，90天的比180天贵。当然，对于客户来说，这个时间越短越好。例如一单理赔，在买了重疾险以后3个多月的时候查出重疾来，90天的等待期刚过，但如果买的是等待期180天的产品，那么就不能获得保险金的赔付，只能返还保费。</p>
+                        <p class="ani" swiper-animate-effect="fadeInLeft">如果客户非常介意等待期，两种重疾产品，一个种类40种等待期90天，一个50种等待期180天，我们可以推荐客户选前者。</p>
+                    </div>
+                </div>
+                <div class="more"><img src="images/more.png"></div>
+            </li>
+            <li class="swiper-slide">
+                <h2 class="title">
+                    <img src="images/logo.png">
+                    <span>保信云顾问</span>
+                </h2>
+                <div class="content">
+                    <h2 class="ani" swiper-animate-effect="fadeInLeft">二、轻症疾病纳入保障范围的好</h2>
+                    <div class="intro">
+                        <p class="ani" swiper-animate-effect="fadeInLeft">轻症疾病是顺应医疗发展趋势，将先进治疗手段（如微创介入、不开胸）纳入保障范围，将原本重疾险的除外责任（如原位癌）纳入保障范围，鼓励尽早安排治疗，降低患重疾的可能性。</p>
+                        <p class="ani" swiper-animate-effect="fadeInLeft">轻症疾病的赔付，一般只有重疾保额的20%,如重疾保额50万，得了轻症就赔10万。这里还有一个重要的细节要注意，这个10万赔了以后，50万的保额是继续50万还是减少为40万，两种情况对保费的影响自然也不同。</p>
+                    </div>
+                </div>
+                <div class="more"><img src="images/more.png"></div>
+            </li>
+            <li class="swiper-slide">
+                <h2 class="title">
+                    <img src="images/logo.png">
+                    <span>保信云顾问</span>
+                </h2>
+                <div class="content">
+                    <h2 class="ani" swiper-animate-effect="fadeInLeft">三、癌症额外赔的好</h2>
+                    <div class="intro">
+                        <p class="ani" swiper-animate-effect="fadeInLeft">重大疾病赔付里，有百分之七八十都是癌症，所以部分产品会在赔付重疾保险金的基础上，对癌症进行额外赔付，以提高关键疾病的保障额度。但天下没有免费的午餐，对癌症进行额外赔付保费也会有所增加。</p><br>
+                        <p class="ani" swiper-animate-effect="fadeInLeft">如果客户认为这样的重疾险太贵，我们可建议客户，购买单一的防癌险，把最大的风险点规避过去，也能在很大程度上让自己得以保障。</p>
+                    </div>
+                </div>
+                <div class="more"><img src="images/more.png"></div>
+            </li>
+            <li class="swiper-slide">
+                <h2 class="title">
+                    <img src="images/logo.png">
+                    <span>保信云顾问</span>
+                </h2>
+                <div class="content">
+                    <h2 class="ani" swiper-animate-effect="fadeInLeft">四、注意身故赔付的选择</h2>
+                    <div class="intro">
+                        <p class="ani" swiper-animate-effect="fadeInLeft">并不是每一个重疾险都包含身故赔付保额的责任，所以我们要看一下自己产品的责任，有的是定期险，有的是两全险，还有把重疾险作为终身寿险的附加险。</p>
+                        <p class="ani" swiper-animate-effect="fadeInLeft">对于定期重疾险一般是身故没有任何赔付，如果是两全险，则是返还保费或现金价值较大者，如果是把重疾险作为终身寿险附加险的话，一般身故和重疾一样都是赔付保额，当然这种情况只赔其中之一，哪个先发生赔付哪个。</p>
+                    </div>
+                </div>
+                <div class="more"><img src="images/more.png"></div>
+            </li>
+            <li class="swiper-slide">
+                <h2 class="title">
+                    <img src="images/logo.png">
+                    <span>保信云顾问</span>
+                </h2>
+                <div class="content">
+                    <h2 class="ani" swiper-animate-effect="fadeInLeft">五、注意是否有豁免</h2>
+                    <div class="intro">
+                        <p class="ani" swiper-animate-effect="fadeInLeft">保费豁免的意思通俗来说。就是如果得了约定的保险事故（如重疾、身故或者全残），剩下的保费不用交，保险利益不变。</p><br>
+                        <p class="ani" swiper-animate-effect="fadeInLeft">投保人豁免在什么情况下有用呢？就是夫妻互保或者给小孩买保险的时候。这样，除了被保险人得重疾可以获得理赔之外，如果投保人出了约定的事故，以后就不用再交保费了，但是被保险人的利益不变，所以，保费豁免又称为保险的“保险”。</p>
+                    </div>
+                </div>
+                <div class="more"><img src="images/more.png"></div>
+            </li>
+            <li class="swiper-slide">
+                <h2 class="title">
+                    <img src="images/logo.png">
+                    <span>保信云顾问</span>
+                </h2>
+                <div class="content">
+                    <h2 class="ani" swiper-animate-effect="fadeInLeft">六、注意免体检限额</h2>
+                    <div class="intro">
+                        <p class="ani" swiper-animate-effect="fadeInLeft">免体检限额不是产品中的规定，而是各保险公司内部的约定，与保险公司的风险承受能力以及经营策略相关。对于客户来说，当然是免体检限额越高越好。不过我们还是要提醒客户，一旦过了40岁，免体检限额就会直线下降，20岁的小年轻可能买50万甚至70万都不用体检，但是40岁的大叔可能30万就要体检。年龄增加，重疾理赔发生率也在上升。所以，不管是客户还是我们自身，在经济状况允许的情况下，重疾险越早买越好。</p>
+                    </div>
+                </div>
+                <div class="more"><img src="images/more.png"></div>
+            </li>
+            <li class="swiper-slide">
+                <div class="advBox">
+                    <div class="ani" swiper-animate-effect="rollIn">
+                        <img src="images/logo.png" alt=""> 保信云顾问
+                        <!-- <span class="userName">李建军</span> -->
+                    </div>
+                    <div class="ani" swiper-animate-effect="rollIn">
+                        <p>保险咨询</p>
+                        <p><img src="images/more.png"></p>
+                    </div>
+                    <div class="btPic"><img id="qrCode" class="ani" swiper-animate-effect="rotateIn" src="images/code.png" alt=""></div>
+                </div>
+            </li>
+            <li class="swiper-slide">
+                <!-- 保险咨询 -->
+                <div class="advBox ">
+                    <div>
+                        <img src="images/logo.png" alt=""> 保信云顾问
+                        <span class="userName"> </span>
+                    </div>
+                    <!-- <div style="-webkit-overflow-scrolling: touch;overflow-y: scroll;height: 100%;"> -->
+                    <iframe id="consult" height="500px" src="http://ii.sinelinked.com/sub/consult/" frameborder="0"></iframe>
+                    <!-- </div> -->
+                </div>
+            </li>
+        </ul>
+    </div>
+    <script src="http://ii.sinelinked.com/lib/axios.min.js"></script>
+    <script src="../public/swiper.animate1.0.3.min.js"></script>
+    <script src="../public/swiper.min.js"></script>
+    <script src="../public/utils.js"></script>
+    <script src="../public/common.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+import Vue from 'vue'
+import Router from 'vue-router'
+import statistical from '@/views/statistical'
+import member from '@/views/member'
+import memberDetail from '@/views/memberDetail'
+
+import manage from '@/views/manage'
+import cost from '@/views/cost'
+
+import mine from '@/views/mine'
+import menu from '@/views/mine/menu'
+import show from '@/views/mine/show'
+import forward from '@/views/mine/forward'
+import person from '@/views/mine/person'
+
+Vue.use(Router)
+
+
+
+export default new Router({
+	// mode: 'history',
+	base:'/bxTeam/mobile/dist/',
+  routes: [
+    {
+      path: '/',
+      name: 'statistical',
+      component: statistical
+    },
+		{
+			path: '/member',
+			name: 'member',
+			component: member
+		},
+		{
+			path:'/memberDetail/:id',
+			name:'memberDetail',
+			component:memberDetail
+		},
+		{
+			path: '/manage',
+			name: 'manage',
+			component: manage
+		},
+		{
+			path: '/cost',
+			name: 'cost',
+			component: cost
+		},
+		{
+			path: '/mine',
+			component: mine,
+			children:[
+				{
+					path:'',
+					name:'menu',
+					component:menu
+				},
+				{
+					path:'show',
+					name:'show',
+					component:show
+				},
+				{
+					path:'forward',
+					name:'forward',
+					component:forward
+				},
+				{
+					path:'person',
+					name:'person',
+					component:person
+				},
+			]
+		},
+  ]
+})

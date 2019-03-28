@@ -1,0 +1,320 @@
+.wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+}
+.wrap .list {
+  text-align: center;
+  position: absolute;
+  width: 15rem;
+  height: 100%;
+  /** 封面 **/
+  /** 招收条件 **/
+  /** 封底 **/
+  /** korea **/
+  /** jp-yl **/
+}
+.wrap .list li {
+  width: 15rem;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.wrap .list .coverTitle {
+  font-size: 1.44rem;
+  margin-top: 1.8rem;
+}
+.wrap .list .labourText img {
+  width: 6.18rem;
+  height: 1.68rem;
+  margin-top: 1.24rem;
+}
+.wrap .list .productIntro img {
+  width: 4.76rem;
+  height: 1.16rem;
+  margin-top: 0.88rem;
+}
+.wrap .list .bg img {
+  width: 13.32rem;
+  height: 9.06rem;
+  margin-top: 1.7rem;
+}
+.wrap .list .more {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.wrap .list .more img {
+  width: 1.24rem;
+  height: 1.2rem;
+}
+.wrap .list .title {
+  font-size: 0.72rem;
+  margin-top: 1.88rem;
+}
+.wrap .list .content {
+  width: 13.32rem;
+  height: 15rem;
+  background: #b73f42;
+  color: #fff;
+  margin: 1.44rem auto;
+  overflow: hidden;
+  box-shadow: 0.14rem 0.16rem 0.4rem #999999;
+}
+.wrap .list .content p {
+  font-size: 0.6rem;
+  text-align: left;
+  line-height: 1.2rem;
+  margin: 0 1.12rem;
+}
+.wrap .list .content .first_p {
+  margin-top: 1.2rem;
+  padding-top: 2rem;
+}
+.wrap .list .content .sec_p {
+  padding-top: 1.2rem;
+}
+.wrap .list .content .third_p {
+  padding-top: 0;
+}
+.wrap .list .content .four_p {
+  padding-top: 2rem;
+}
+.wrap .list .content .five_p {
+  padding-top: 3rem;
+}
+.wrap .list .content .six_p {
+  padding-top: 3.4rem;
+}
+.wrap .list .content .seven_p,
+.wrap .list .content .eight_p {
+  padding-top: 4.6rem;
+}
+.wrap .list .footer .ftMain {
+  width: 12.88rem;
+  height: 20.4rem;
+  background: #fef9f9;
+  box-shadow: 0 0 0.4rem #999999;
+  border-radius: 0.1rem;
+  margin: 3rem auto;
+  overflow: hidden;
+}
+.wrap .list .footer .fotterTitle {
+  font-size: 0.72rem;
+  color: #3f3f3f;
+  margin-top: 1rem;
+  margin-bottom: 1.2rem;
+}
+.wrap .list .footer p {
+  font-size: 0.48rem;
+  line-height: 0.96rem;
+}
+.wrap .list .footer h4 {
+  font-size: 0.96rem;
+  margin-top: 0.4rem;
+}
+.wrap .list .footer .code img {
+  width: 8.6rem;
+  height: 8.6rem;
+  margin-top: 1.2rem;
+}
+.wrap .list .labourText .korea-labour {
+  width: 9.48rem;
+}
+.wrap .list .koreaTit {
+  line-height: 1.32rem;
+  margin-top: 1.24rem;
+}
+.wrap .list .korea-tit {
+  font-size: 0.96rem;
+  line-height: 2.6rem;
+  margin-top: 0.8rem;
+}
+.wrap .list .korea-tit span {
+  color: #b73f42;
+}
+.wrap .list .korea-content {
+  height: 9.48rem;
+}
+.wrap .list .korea-content p {
+  font-size: 0.52rem;
+}
+.wrap .list .korea-content .korea-s {
+  line-height: 3.6rem;
+}
+.wrap .list .korea-content .korea-c {
+  text-align: center;
+  line-height: 0.52rem;
+}
+.wrap .list .korea-content .korea-t {
+  line-height: 0.96rem;
+  text-align: center;
+  margin-top: 1.28rem;
+}
+.wrap .list .korea-content .singapore-p {
+  margin-top: 0;
+}
+.wrap .list .japan-content {
+  height: 17.2rem;
+}
+.wrap .list .content .korea-firstP {
+  margin-top: 0.6rem;
+  font-size: 0.52rem;
+  line-height: 1.04rem;
+  padding-top: 0;
+}
+.wrap .list .content .korea-secP {
+  padding-top: 0;
+  margin-top: 1.24rem;
+}
+.wrap .list .content .korea-fourP {
+  margin-top: 1.6rem;
+  padding-top: 0;
+  line-height: 1.04rem;
+}
+.wrap .list .content .mt-zero {
+  margin-top: 0;
+}
+.wrap .list .notes {
+  font-size: 0.48rem;
+  color: #b73f42;
+  margin-top: 0.8rem;
+}
+.wrap .list .singapore-content {
+  width: 15rem;
+  height: 19.12rem;
+  background: url(../../public/images/singapore-tc.png) no-repeat;
+  background-size: 100%;
+  margin-top: 2rem;
+}
+.wrap .list .singapore-content p {
+  padding-top: 3.88rem;
+  font-size: 0.52rem;
+  line-height: 0.88rem;
+  text-align: left;
+  color: #fff;
+  margin: 0 0.98rem;
+  font-weight: bold;
+}
+.wrap .list .singapore-contente {
+  height: 16rem;
+}
+.wrap .list .jp-yl img {
+  width: 12.8rem;
+  height: 2.84rem;
+  margin-top: 2.56rem;
+}
+.wrap .list .jp-yl-intro img {
+  width: 4.38rem;
+  height: 0.8rem;
+  margin-top: 1.1rem;
+}
+.wrap .list .jp-bg img {
+  margin-top: 2.72rem;
+}
+.wrap .list .yj-bg {
+  background: url(../images/pai-bg.png) no-repeat;
+  background-size: cover;
+}
+.wrap .list .yl-content {
+  padding: 0 1rem;
+  width: 11.04rem;
+  height: 18rem;
+  background: #fff;
+  margin-top: 2.4rem;
+}
+.wrap .list .yl-content .title {
+  font-size: 0.96rem;
+  margin: 1.4rem 0;
+  color: #2f1911;
+}
+.wrap .list .yl-content p {
+  line-height: 1.12rem;
+  color: #34190f;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.wrap .list .yj-bg2 {
+  background: url(../images/pai-bg2.png) no-repeat;
+  background-size: cover;
+}
+.wrap .list .yj-bg3 {
+  background: url(../images/pai-bg3.png) no-repeat;
+  background-size: cover;
+}
+.wrap .list .yj-bg3 .title {
+  margin: 1.4rem 0 1rem 0;
+  color: #2f1911;
+}
+.wrap .list .yj-bg3 p {
+  line-height: 0.96rem;
+}
+.wrap .list .yj-bg4 {
+  background: url(../images/pai-bg4.png) no-repeat;
+  background-size: cover;
+}
+.wrap .list .yj-bg4 .title {
+  margin-bottom: 0.6rem;
+}
+.wrap .list .yj-bg4 p {
+  line-height: 0.92rem;
+}
+.wrap .list .yj-bg5 {
+  background: url(../images/pai-bg5.png) no-repeat;
+  background-size: cover;
+}
+.wrap .list .yj-bg5 .title {
+  margin-bottom: 1.28rem;
+}
+.wrap .list .yj-bg5 p {
+  line-height: 1.2rem;
+}
+.wrap .list .yj-bg6 {
+  background: url(../images/pai-bg6.png) no-repeat;
+  background-size: cover;
+}
+.wrap .list .yj-bg6 p {
+  text-align: center;
+  line-height: 1.52rem;
+}
+.wrap .list .yj-bg7 {
+  background: url(../images/pai-bg7.png) no-repeat;
+  background-size: cover;
+}
+.wrap .list .yj-bg7 .content p {
+  text-align: left;
+  padding-left: 3.2rem !important;
+}
+.wrap .list .yj-bg8 {
+  background: url(../images/pai-bg8.png) no-repeat;
+  background-size: cover;
+}
+.wrap .list .yj-bg9 {
+  background: url(../images/pai-bg9.png) no-repeat;
+  background-size: cover;
+}
+.wrap .list .yj-bg9 .title {
+  margin-bottom: 0.56rem;
+}
+.wrap .list .yj-bg9 .chi-title {
+  line-height: 0.96rem;
+  font-size: 0.6rem;
+  color: #2f1911;
+  text-align: left;
+  padding-left: 2.2rem !important;
+}
+.wrap .list .yj-bg9 p {
+  line-height: 1.2rem;
+}
+.wrap .list .yj-bg10 {
+  background: url(../images/pai-bg10.png) no-repeat;
+  background-size: cover;
+}
+.wrap .list .yj-bg10 .chi-title {
+  margin-bottom: 0.8rem;
+}

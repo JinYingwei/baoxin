@@ -1,0 +1,144 @@
+/*content*/
+.wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+.wrap .plaList {
+  height: 100%;
+  position: absolute;
+}
+.wrap .plaList li {
+  width: 15rem;
+  height: 100%;
+  background: url(../images/mainBg.png) no-repeat center;
+  background-size: 100%;
+  overflow: hidden;
+}
+.wrap .plaList li:nth-of-type(3) p {
+  padding-top: 0.8rem;
+  height: 7.76rem;
+}
+.wrap .plaList li:nth-of-type(3) .more {
+  margin-top: 2.4rem;
+}
+.wrap .plaList li:nth-of-type(4) p {
+  padding-top: 0.76rem;
+  height: 10.22rem;
+}
+.wrap .plaList li:nth-of-type(4) .more {
+  margin-top: 0.76rem;
+}
+.wrap .plaList h2 {
+  line-height: 0.98rem;
+  color: #f5f5f5;
+  padding: 0.64rem 0 0 1.14rem;
+  font-size: 0.4rem;
+}
+.wrap .plaList h2 img {
+  width: 1.04rem;
+  height: 0.98rem;
+  margin-right: 0.26rem;
+}
+.wrap .firLi {
+  height: 100%;
+}
+.wrap .firLi h3 {
+  text-align: center;
+  margin-top: 1.34rem;
+}
+.wrap .firLi h3 img {
+  width: 12.44rem;
+  height: 1.52rem;
+}
+.wrap .firLi .bPic {
+  text-align: center;
+  margin-top: 2.32rem;
+}
+.wrap .firLi .bPic img {
+  width: 13.92rem;
+  height: 11.52rem;
+}
+.wrap .firLi .more {
+  margin-top: 3.14rem;
+}
+.wrap .more {
+  margin-top: 0.48rem;
+  text-align: center;
+}
+.wrap .more img {
+  width: 1rem;
+  height: 0.96rem;
+}
+.wrap .tPic {
+  text-align: center;
+  position: relative;
+  top: -0.76rem;
+}
+.wrap .tPic img {
+  width: 12.32rem;
+  height: 7.56rem;
+}
+.wrap .wordBox {
+  width: 12.24rem;
+  height: 11.1rem;
+  background: #fffdf5;
+  box-shadow: 0.2rem 0.4rem 0.4rem #b2855c;
+  font-size: 0.56rem;
+  line-height: 0.96rem;
+  padding: 0.8rem 0 0 1.08rem;
+  color: #2f1911;
+  margin: 0.32rem auto;
+}
+.advBox {
+  width: 13.54rem;
+  margin: 0.76rem auto;
+}
+.advBox div {
+  text-align: center;
+}
+.advBox div:first-child {
+  height: 1.78rem;
+  border-radius: 0.4rem;
+  background: #fff;
+  font-size: 0.48rem;
+  line-height: 1.78rem;
+  margin-bottom: 0.28rem;
+  color: #333;
+}
+.advBox div:first-child img {
+  width: 1.28rem;
+  height: 1.22rem;
+  vertical-align: middle;
+  margin-right: 0.1rem;
+}
+.advBox div:first-child span {
+  color: #5994f1;
+  margin-left: 0.48rem;
+}
+.advBox div:nth-of-type(2) {
+  height: 3.14rem;
+  border-radius: 0.4rem;
+  background: #fff;
+  margin-bottom: 3.64rem;
+}
+.advBox div:nth-of-type(2) p:first-child {
+  font-size: 0.72rem;
+  color: #3d69c1;
+  line-height: 0.72rem;
+  padding-top: 0.64rem;
+  padding-bottom: 0.56rem;
+}
+.advBox div:nth-of-type(2) p img {
+  width: 0.64rem;
+  height: 0.64rem;
+}
+.advBox .btPic {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.advBox .btPic img {
+  width: 7.4rem;
+}

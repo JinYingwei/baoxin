@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./lib/layui/css/layui.css">
+    <title>建议/投诉</title>
+</head>
+
+<body>
+    <div class="app">
+        <div class="layui-tab layui-tab-brief">
+            <ul id="top-tab" class="layui-tab-title">
+                <li class="layui-this">投诉</li>
+                <li>表扬</li>
+            </ul>
+            <div class="layui-tab-content">
+                <!-- 建议 -->
+                <div class="layui-tab-item layui-show layui-form" lay-filter="advise-form">
+                    <div class="advise-top shadow">
+                        <ul>
+                            <li>
+                                <label>投诉者电话 <i class="start-icon"> * </i></label>
+                                <input name="fbPersonPhone" type="number" placeholder="请输入电话">
+                            </li>
+                            <li>
+                                <label>被投诉者电话 <i class="start-icon"> * </i></label>
+                                <input name="userPhone"  type="number" placeholder="请输入电话">
+                            </li>
+                            <li>
+                                <label>顾问姓名 </label>
+                                <input name="userName"  type="text" placeholder="请输入姓名">
+                            </li>
+                            <li>
+                                <label>联系时间 </label>
+                                <input name="contactTimeStr" readonly   type="text" placeholder="请选择时间" id="advise-laydate">
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="advise-middle shadow">
+                        <h5>投诉选项</h5>
+                        <ul class="option" >
+                            <li><input type="checkbox" lay-filter="adviseOption" value="1" name="feedbackOptions" title="未联系"> </li>
+                            <li><input type="checkbox" lay-filter="adviseOption" value="2"  name="feedbackOptions" title="沟通简单不耐心" > </li>
+                            <li><input type="checkbox" lay-filter="adviseOption" value="3"  name="feedbackOptions" title="语言粗鲁无礼"> </li>
+                            <li><input type="checkbox" lay-filter="adviseOption" value="4"  name="feedbackOptions" title="回复太慢(超过24小时)"> </li>
+                            <li><input type="checkbox" lay-filter="adviseOption" value="5"  name="feedbackOptions" title="已联系但不能提供帮助"> </li>
+                            <li><input type="checkbox" lay-filter="adviseOption" value="6"  name="feedbackOptions" title="电话时间不合适(太晚/太早)"> </li>
+                            <li><input type="checkbox" lay-filter="adviseOption" value="7"  name="feedbackOptions" title="其它"> </li>
+                        </ul>
+                    </div>
+                    <div class="advise-bottom shadow">
+                        <h5>留言内容</h5>
+                        <div class="message-con">
+                            <textarea  name="content"  placeholder="请输入内容" class="layui-textarea"></textarea>
+                        </div>
+                    </div>
+                    <button class="layui-btn" id="advise-btn" lay-submit lay-filter="advise-btn">立即提交</button>
+                </div>
+                <!-- 投诉 -->
+                <div class="layui-tab-item layui-form"  lay-filter="praise-form">
+                        <div class="advise-top shadow">
+                                <ul>
+                                    <li>
+                                        <label>表扬者电话 <i class="start-icon"> * </i></label>
+                                        <input name="fbPersonPhone"  type="number" placeholder="请输入电话">
+                                    </li>
+                                    <li>
+                                        <label>被表扬者电话 <i class="start-icon"> * </i></label>
+                                        <input name="userPhone"  type="number" placeholder="请输入电话">
+                                    </li>
+                                    <li>
+                                        <label>顾问姓名 </label>
+                                        <input name="userName"  type="text" placeholder="请输入姓名">
+                                    </li>
+                                    <li>
+                                        <label>联系时间 </label>
+                                        <input name="contactTimeStr" readonly type="text" placeholder="请选择时间" id="praise-laydate">
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="advise-middle shadow">
+                                <h5>表扬选项</h5>
+                                <ul class="option">
+                                    <li><input type="checkbox" lay-filter="praiseOption" value="1" name="feedbackOptions" title="回复及时"> </li>
+                                    <li><input type="checkbox" lay-filter="praiseOption" value="2" name="feedbackOptions" title="业务专业" > </li>
+                                    <li><input type="checkbox" lay-filter="praiseOption" value="3" name="feedbackOptions" title="交流愉快"> </li>
+                                    <li><input type="checkbox" lay-filter="praiseOption" value="4" name="feedbackOptions" title="其它"> </li>
+                                </ul>
+                            </div>
+                            <div class="advise-bottom shadow">
+                                <h5>留言内容</h5>
+                                <div class="message-con">
+                                    <textarea name="content" placeholder="请输入内容" class="layui-textarea"></textarea>
+                                </div>
+                            </div>
+                            <button class="layui-btn" id="complain-btn" lay-submit lay-filter="praise-btn">立即提交</button>
+                        
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- js -->
+    <script src="http://ii.sinelinked.com/lib/axios.min.js"></script>
+    <script src="./lib/layui/layui.js"></script>
+    <script src="./lib/layer_mobile/layer.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>

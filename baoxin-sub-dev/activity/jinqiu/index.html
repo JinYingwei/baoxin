@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="./css/main.css" />
+	<title>金秋豪礼</title>
+</head>
+
+<body>
+	<div class="main">
+		<div class="proInfo">
+			<img src="img/index/index01.jpg">
+			<img src="img/index/index02.jpg">
+			<img src="img/index/proTitle.jpg">
+			<!-- href="http://m.tb.cn/h.36frUQq?sm=c981d0" -->
+			<a href="javascript:;" target="_blank" class="taobaoWebsite"></a>
+			<a href="http://www.shareshow.com.cn/homepage/index.html" target="_blank" class="officeWebsite"></a>
+
+		</div>
+		<div class="proList">
+			<div class="item">
+				<a href="sp-IV.html?id=5b729096db61e635a0a5def9">
+					<img src="img/index/proList01.jpg">
+				</a>
+				<div class="toPayBtn">
+					<img data-id="5b729096db61e635a0a5def9" src="img/payBtn.png">
+				</div>
+			</div>
+			<div class="item">
+				<a href="sp-III.html?id=5b728a7bdb61e635a0a5def7"><img src="img/index/proList02.jpg"></a>
+				<div class="toPayBtn">
+					<img data-id="5b728a7bdb61e635a0a5def7" src="img/payBtn.png">
+				</div>
+			</div>
+			<div class="item">
+				<a href="sp-II.html?id=5b728024e87b482df8194562"><img src="img/index/proList03.jpg"></a>
+				<div class="toPayBtn">
+					<img data-id="5b728024e87b482df8194562" src="img/payBtn.png">
+				</div>
+			</div>
+			<div class="item">
+				<a href="sp-I.html?id=5b7a7d30f70bd703c0d931d4"><img src="img/index/proList04.jpg"></a>
+				<div class="toPayBtn">
+					<img data-id="5b7a7d30f70bd703c0d931d4" src="img/payBtn.png">
+				</div>
+			</div>
+		</div>
+		<div class="taobaoMask">
+			<div class="taobaoMaskCon">
+				<br>
+				<img src="./img/index/rightTop.png" alt="" style="width:25%">
+				<br>
+				<br>
+				<h2>点击右上角，选择浏览器打开</h2>
+				<br>
+				<!-- <p>【云微投官方品牌店】，復·制这段描述￥YPtDbfh7cH3￥后咑閞手机淘宝或者用浏览器咑閞http://m.tb.cn/h.36frUQq?sm=c981d0查看</p> -->
+			</div>
+		</div>
+		<div class="proBottom">
+			<img src="img/index/proBottom.jpg">
+		</div>
+	</div>
+
+
+</body>
+<script type="text/javascript">
+	// selecter
+	function $(target) {
+		return document.querySelector(target)
+	}
+	// selecterAll
+	function $A(target) {
+		return document.querySelectorAll(target)
+	}
+
+
+	var payBtns = $A('.toPayBtn img')
+
+	for (var i = 0; i < payBtns.length; i++) {
+		payBtns[i].onclick = function () {
+			var proId = this.dataset.id
+			window.location.href = './pay.html?id=' + proId
+		}
+	}
+
+	function is_weixn() {
+		var ua = navigator.userAgent.toLowerCase();
+		if (ua.match(/MicroMessenger/i) == "micromessenger") {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	var taobaoWebsite = document.querySelector('.taobaoWebsite')
+	var taobaoMask = document.querySelector('.taobaoMask')
+
+	if (!is_weixn()) {
+		taobaoWebsite.href =
+			'https://shop163161938.taobao.com/index.htm?spm=2013.1.w5001-18602205990.3.5c364aa3uBvknx&spm&scene=taobao_shop'
+	} else {
+		taobaoWebsite.href = 'javascript:;'
+		taobaoWebsite.onclick = function () {
+			taobaoMask.style.display = 'block'
+		}
+	}
+
+
+
+
+	taobaoMask.onclick = function (e) {
+		console.log(e.target.className);
+
+		if (e.target.className == 'taobaoMask') {
+			taobaoMask.style.display = 'none'
+		}
+	}
+</script>
+
+</html>

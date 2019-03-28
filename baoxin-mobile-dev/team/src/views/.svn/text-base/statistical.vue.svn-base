@@ -1,0 +1,73 @@
+<template>
+	<div>
+		<div class="center">
+			<div id="myChart" style="height: 300px;width: 100%;">
+			</div>
+		</div>
+	</div>
+</template>
+
+<script>
+	// 引入 ECharts 主模块
+	var echarts = require('echarts/lib/echarts');
+	// 引入柱状图
+	require('echarts/lib/chart/line');
+	// 引入提示框和标题组件
+	require('echarts/lib/component/tooltip');
+	require('echarts/lib/component/title');
+
+	export default {
+		name: 'statistical',
+		methods: {
+			drawLine() {
+				// 初始化echarts实例
+				var myChart = echarts.init(document.getElementById('myChart'));
+				// 绘制图表
+				myChart.setOption({
+					title: {
+						text: "业绩变化统计",
+						left: "center"
+					},
+					tooltip: {
+						trigger: "axis"
+					},
+					legend: {
+						data: ["接单数", "点单数"],
+						left: "70%"
+					},
+
+					xAxis: {
+						type: "category",
+						boundaryGap: false,
+						data: ["周一", "周二", "周三", "周四", "周五", "周六", "周日"]
+					},
+					yAxis: [{
+						type: "value"
+					}],
+					series: [{
+							name: "接单数",
+							type: "line",
+							data: [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6]
+						},
+						{
+							name: "点单数",
+							type: "line",
+							data: [2.6, 4, 5, 26.4, 57, 70.7, 175.6]
+						}
+					]
+				});
+
+			}
+		},
+		mounted() {
+			this.drawLine();
+		}
+
+	}
+</script>
+
+<style scoped>
+#myChart{
+	margin-top: 50px;
+}
+</style>

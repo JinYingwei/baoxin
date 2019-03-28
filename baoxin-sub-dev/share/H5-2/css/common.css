@@ -1,0 +1,152 @@
+/*header*/
+/*content*/
+.wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+}
+.wrap .famList {
+  height: 100%;
+  position: absolute;
+}
+.wrap li {
+  height: 100%;
+  overflow: hidden;
+  width: 15rem;
+}
+.wrap li:nth-of-type(3) h4 {
+  text-align: center;
+  padding-left: 0;
+}
+.wrap li:nth-of-type(4) h4 {
+  text-align: center;
+  padding-left: 0;
+}
+.wrap li h2 {
+  font-size: 0.48rem;
+  line-height: 1.22rem;
+  margin-top: 0.8rem;
+  margin-left: 0.98rem;
+}
+.wrap li h2 img {
+  width: 1.28rem;
+  height: 1.22rem;
+  margin-right: 0.34rem;
+}
+.wrap li .introLi {
+  width: 13.32rem;
+  height: 12.2rem;
+  padding-top: 4.54rem;
+  background: #fffdf5;
+  margin: 1.32rem auto;
+  box-shadow: 0.28rem 0.48rem 0.4rem #d6c3b0;
+  position: relative;
+}
+.wrap li .introLi img {
+  width: 8.32rem;
+  height: 5.2rem;
+  position: absolute;
+  left: 2.78rem;
+  top: -0.78rem;
+}
+.wrap li .introLi h4 {
+  font-size: 0.6rem;
+  line-height: 2.4rem;
+  color: #2f1911;
+  padding-left: 0.74rem;
+}
+.wrap li .introLi p {
+  font-size: 0.48rem;
+  line-height: 0.96rem;
+  text-indent: 2em;
+  padding: 0 1.16rem;
+}
+.wrap li .more {
+  margin-top: 1.8rem;
+  text-align: center;
+}
+.wrap li .more img {
+  width: 1rem;
+  height: 0.96rem;
+}
+.wrap .fLi {
+  text-align: center;
+}
+.wrap .fLi h2 {
+  font-size: 0.48rem;
+  line-height: 1.22rem;
+  margin-top: 0.8rem;
+}
+.wrap .fLi h2 img {
+  width: 1.28rem;
+  height: 1.22rem;
+  margin-right: 0.34rem;
+}
+.wrap .fLi h3 {
+  margin-top: 0.92rem;
+}
+.wrap .fLi h3 img {
+  width: 13.56rem;
+  height: 3.12rem;
+}
+.wrap .fLi .bPic {
+  margin-top: 3.72rem;
+}
+.wrap .fLi .bPic img {
+  width: 13.2rem;
+  height: 9.96rem;
+}
+.advBox {
+  width: 13.54rem;
+  margin: 0.76rem auto;
+}
+.advBox div {
+  text-align: center;
+}
+.advBox div:first-child {
+  height: 1.78rem;
+  border-radius: 0.4rem;
+  background: #fff;
+  font-size: 0.48rem;
+  line-height: 1.78rem;
+  margin-bottom: 0.28rem;
+}
+.advBox div:first-child img {
+  width: 1.28rem;
+  height: 1.22rem;
+  vertical-align: middle;
+  margin-right: 0.1rem;
+}
+.advBox div:first-child span {
+  color: #5994f1;
+  margin-left: 0.48rem;
+}
+.advBox div:nth-of-type(2) {
+  height: 3.14rem;
+  border-radius: 0.4rem;
+  background: #fff;
+  margin-bottom: 3.64rem;
+}
+.advBox div:nth-of-type(2) p:first-child {
+  font-size: 0.72rem;
+  color: #3d69c1;
+  line-height: 0.72rem;
+  padding-top: 0.64rem;
+  padding-bottom: 0.56rem;
+}
+.advBox div:nth-of-type(2) p img {
+  width: 0.64rem;
+  height: 0.64rem;
+}
+.advBox .btPic {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+.advBox .btPic img {
+  width: 7.4rem;
+}
+#qrCode{
+  border-radius: 50%
+}

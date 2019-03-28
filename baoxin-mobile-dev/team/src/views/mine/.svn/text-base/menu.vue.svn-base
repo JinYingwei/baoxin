@@ -1,0 +1,50 @@
+<template>
+	<div>
+		<div class="shadow-box center">
+			<van-cell title="团队秀" icon="like-o" :to="{name:'show'}" is-link>
+				<van-icon slot="right-icon" name="arrow" class="van-cell__right-icon" /></van-cell>
+			<van-cell title="转发" icon="exchange-record" :to="{name:'forward'}" is-link>
+				<van-icon slot="right-icon" name="arrow" class="van-cell__right-icon" /></van-cell>
+			<van-cell title="团队信息" icon="contact" :to="{name:'person'}" is-link>
+				<van-icon slot="right-icon" name="arrow" class="van-cell__right-icon" /></van-cell>
+
+			<p class="wxCodeTitle">长按识别进入顾问名片</p>
+			<img class="wxCode" :src="qrCodePath">
+		</div>
+	</div>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				qrCodePath: ''
+			}
+		},
+		methods: {
+			//查询顾问信息
+			search() {
+				this.axios({
+						method: "get",
+						url: baseURL + '/api/team/search',
+					})
+					.then(result => {
+						console.log(result)
+						if (result.data[0]) {
+							this.qrCodePath = result.data[0].qrCodePath
+						}
+					})
+					.catch(err => {
+						console.log(err)
+					})
+			},
+		},
+		created(){
+			this.search()
+		}
+	}
+</script>
+
+<style scoped>
+
+</style>
